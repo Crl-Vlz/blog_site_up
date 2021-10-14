@@ -1,0 +1,10 @@
+:root {
+  --lightmain: rgb(205, 139, 79);
+  --darkmain: rgb(0, 0, 0);
+  --lightcontrast: rgb(0, 0, 0);
+  --darkcontrast: rgb(0, 0, 0);
+}
+
+* {
+  font-family: "PT Serif", serif;
+}
