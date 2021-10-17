@@ -5,15 +5,30 @@
   --darkcontrast: #945b51;
 }
 
+@media screen and (max-width: 719px) {
+  :root {
+    --create-btn-spacing-h: 85vw;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  :root {
+    --create-btn-spacing-h: 93vw;
+  }
+}
+
 * {
   font-family: "Ubuntu", serif;
 }
 
 .create-button {
   position: absolute;
-  top: 90vh;
-  left: 95vw;
-  border-radius: 10rem;
+  top: 87vh;
+  left: var(--create-btn-spacing-h);
+}
+
+.material-icons.black {
+  color: rgba(000, 000, 000, 0.54);
 }
 
 .myNav {
