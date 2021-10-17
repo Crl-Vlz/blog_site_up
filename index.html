@@ -1,6 +1,77 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+    <!--Google Material Icons-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
   </head>
   <body>
+    <nav class="mdc-top-app-bar mdc-top-app-bar--fixed">
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <button
+            aria-label="Return to main"
+            class="
+              material-icons
+              mdc-top-app-bar__navigation-icon
+              mdc-icon-button
+            "
+          >
+            home
+          </button>
+          <button
+            aria-label="See my posts"
+            class="
+              material-icons
+              mdc-top-app-bar__navigation-icon
+              mdc-icon-button
+            "
+          >
+            space_dashboard
+          </button>
+        </section>
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+          role="toolbar"
+        >
+          <button
+            aria-label="Profile"
+            class="
+              material-icons
+              mdc-top-app-bar__navigation-icon
+              mdc-icon-button
+            "
+          >
+            account_circle
+          </button>
+        </section>
+      </div>
+    </nav>
+    <main>
+      <!--Create Button-->
+      <button
+        aria-label="Create Post"
+        class="material-icons mdc-icon-button create-button"
+      >
+        create
+      </button>
+    </main>
+
+    <!--Personal CSS-->
+    <link rel="stylesheet" href="styles/landing.css" />
+    <!--Material Design CSS and Script (Pre-Packaged)-->
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   </body>
 </html>
