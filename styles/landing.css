@@ -9,11 +9,9 @@
   font-family: "PT Serif", serif;
 }
 
-create-button {
-  position: absolute !important;
-  top: 95vh !important;
-  left: 95vw !important;
+.create-button {
+  position: absolute;
+  top: 90vh;
+  left: 95vw;
   border-radius: 10rem;
-  border-color: blue !important;
-  background-color: blue !important;
 }
