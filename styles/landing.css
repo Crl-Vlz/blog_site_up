@@ -1,3 +1,14 @@
+:root {
+  --lightmain: #fed0bb;
+  --darkmain: #fcb9b2;
+  --lightcontrast: #8c2f39;
+  --darkcontrast: #461220;
+}
+
+* {
+  font-family: "PT Serif", serif;
+}
+
 create-button {
   position: absolute !important;
   top: 95vh !important;
