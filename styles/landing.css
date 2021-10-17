@@ -3,6 +3,6 @@ create-button {
   top: 95vh !important;
   left: 95vw !important;
   border-radius: 10rem;
-  border-color: blue !important;
-  background-color: blue !important;
+  border-color: rgb(33, 33, 167) !important;
+  background-color: rgb(47, 47, 180) !important;
 }
