@@ -8,12 +8,14 @@
 @media screen and (max-width: 719px) {
   :root {
     --create-btn-spacing-h: 85vw;
+    --create-btn-spacing-v: 5vh;
   }
 }
 
 @media screen and (min-width: 720px) {
   :root {
     --create-btn-spacing-h: 93vw;
+    --create-btn-spacing-v: 25vh;
   }
 }
 
@@ -22,11 +24,17 @@
 }
 
 .create-button {
-  position: absolute;
-  top: 87vh;
+  position: fixed;
+  top: var(--create-btn-spacing-v);
   left: var(--create-btn-spacing-h);
+  z-index: 1;
 }
 
 .material-icons.black {
   color: rgba(000, 000, 000, 0.54);
+}
+
+.my-card__media {
+  background-image: url(http://getwallpapers.com/wallpaper/full/2/5/4/727006-best-windows-xp-desktop-backgrounds-3840x2160.jpg);
+  width: 75vw;
 }
