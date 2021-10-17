@@ -15,3 +15,10 @@
   left: 95vw;
   border-radius: 10rem;
 }
+
+.myNav {
+  background-color: var(--darkmain);
+  border-color: var(--lightmain);
+  outline-color: var(--darkmain);
+  color: #60947d;
+}
