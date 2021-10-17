@@ -30,10 +30,3 @@
 .material-icons.black {
   color: rgba(000, 000, 000, 0.54);
 }
-
-.myNav {
-  background-color: var(--darkmain);
-  border-color: var(--lightmain);
-  outline-color: var(--darkmain);
-  color: #60947d;
-}
