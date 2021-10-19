@@ -18,6 +18,8 @@
     --create-btn-spacing-v: 20vh;
   }
 }
+/* Maybe change the variables if the height changes as well (smaller screen the edit btn id mid way
+  maybe it will change when the content is added? ) */
 
 * {
   font-family: "Ubuntu", serif;
@@ -41,4 +43,13 @@
 
 .mdc-fab.edit {
   background-color: var(--darkmain);
+}
+
+.myCard {
+  margin: auto;
+}
+
+.mainBody {
+  /* TEMPORARY */
+  padding-top: 7rem;
 }
