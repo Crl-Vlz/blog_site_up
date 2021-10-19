@@ -35,10 +35,10 @@
 }
 
 .my-card__media {
-  background-image: url(http://getwallpapers.com/wallpaper/full/2/5/4/727006-best-windows-xp-desktop-backgrounds-3840x2160.jpg);
-  width: 75vw;
+  /*background-image: url(http://getwallpapers.com/wallpaper/full/2/5/4/727006-best-windows-xp-desktop-backgrounds-3840x2160.jpg);
+  width: 75vw;*/
 }
 
-.mdc-icon-button.edit {
-  color: var(--darkmain);
+.mdc-fab.edit {
+  background-color: var(--darkmain);
 }
