@@ -8,7 +8,6 @@
 html,
 body {
   height: 100%;
-  width: 100%;
 }
 
 @media screen and (max-width: 719px) {
@@ -38,11 +37,9 @@ hr {
   margin: 0 0;
 }
 
-.create-button {
-  position: fixed;
-  top: var(--create-btn-spacing-v);
-  left: var(--create-btn-spacing-h);
-  z-index: 1;
+header {
+  margin-top: -0.5rem;
+  margin-left: -0.5rem;
 }
 
 .mdc-top-app-bar--fixed.myNav {
