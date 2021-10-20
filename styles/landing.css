@@ -5,6 +5,12 @@
   --darkcontrast: #945b51;
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
 @media screen and (max-width: 719px) {
   :root {
     --create-btn-spacing-h: 85vw;
@@ -25,6 +31,13 @@
   font-family: "Ubuntu", serif;
 }
 
+hr {
+  color: gray;
+  border-style: inset;
+  border-width: 1px;
+  margin: 0 0;
+}
+
 .create-button {
   position: fixed;
   top: var(--create-btn-spacing-v);
@@ -37,8 +50,8 @@
 }
 
 .my-card__media {
-  /*background-image: url(http://getwallpapers.com/wallpaper/full/2/5/4/727006-best-windows-xp-desktop-backgrounds-3840x2160.jpg);
-  width: 75vw;*/
+  background-image: url(http://getwallpapers.com/wallpaper/full/2/5/4/727006-best-windows-xp-desktop-backgrounds-3840x2160.jpg);
+  width: 75vw;
 }
 
 .mdc-fab.edit {
@@ -50,6 +63,12 @@
 }
 
 .mainBody {
-  /* TEMPORARY */
-  padding-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15rem;
+  padding-right: 15rem;
+  justify-self: center;
+  align-self: center;
+  box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
 }
