@@ -72,3 +72,15 @@ hr {
   align-self: center;
   box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.cardText {
+  margin: auto;
+  padding: 2vw;
+  color: var(--darkcontrast);
+}
+
+.addBtn {
+  position: sticky;
+  bottom: 0px;
+  right: 0px;
+}

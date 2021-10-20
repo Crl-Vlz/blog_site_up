@@ -71,23 +71,31 @@
       <div class="mainBody">
         <!--CARD-->
         <div class="mdc-card mdc-card-outlined">
+        <!--Edit Button-->
+          <button aria-label="Create Post" class="mdc-fab edit">
+            <div class="mdc-fab__ripple"></div>
+            <span class="mdc-fab__icon material-icons"> edit </span>
+          </button>
           <div
             class="my-card__media mdc-card__media mdc-card__media--16-9 myCard"
           ></div>
+          <div class="cardText">
+            Sample Text
+          </div>
         </div>
-        <!--Create Button-->
+        <!--Create Button
         <button
           aria-label="Create Post"
           class="material-icons edit black mdc-icon-button create-button"
         >
-          edit
+          add
+        </button>-->
+        <!--Create Button-->
+        <button aria-label="Create Post" class="mdc-fab edit addBtn">
+          <div class="mdc-fab__ripple"></div>
+          <span class="mdc-fab__icon material-icons"> add </span>
         </button>
       </div>
-      <!--Create Button-->
-      <button aria-label="Create Post" class="mdc-fab edit">
-        <div class="mdc-fab__ripple"></div>
-        <span class="mdc-fab__icon material-icons"> edit </span>
-      </button>
     </main>
 
     <!--Personal CSS-->
