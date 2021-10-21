@@ -11,6 +11,12 @@ body {
   width: 100%;
 }
 
+nav {
+  width: 100%;
+  margin-left: -0.5rem !important;
+  margin-top: -0.5rem !important;
+}
+
 @media screen and (max-width: 719px) {
   :root {
     --create-btn-spacing-h: 85vw;
@@ -41,8 +47,6 @@ hr {
 .mdc-top-app-bar--fixed.myNav {
   width: 100%;
   background-color: var(--darkmain);
-  margin-left: -0.5rem !important;
-  margin-top: -0.5rem !important;
 }
 
 .my-card__media {
