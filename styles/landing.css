@@ -40,8 +40,8 @@ hr {
 
 .mdc-top-app-bar--fixed.myNav {
   background-color: var(--darkmain);
-  margin-left: -0.5rem;
-  margin-top: -0.5rem;
+  margin-left: -1.5rem;
+  margin-top: -1.5rem;
 }
 
 .my-card__media {
@@ -52,7 +52,7 @@ hr {
 .mdc-fab.edit {
   background-color: var(--lightcontrast);
   position: relative;
-  bottom: 2vw;
+  bottom: 2vh;
   left: 2vw;
 }
 
