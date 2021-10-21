@@ -69,3 +69,10 @@ header {
   align-self: center;
   box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.mdc-fab.fab-persistent {
+  display: fixed !important;
+  top: 20%;
+  left: 90%;
+  z-index: 1;
+}
