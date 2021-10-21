@@ -52,7 +52,10 @@ header {
 }
 
 .mdc-fab.edit {
-  background-color: var(--darkmain);
+  background-color: var(--lightcontrast);
+  position: relative;
+  bottom: 2vw;
+  left: 2vw;
 }
 
 .myCard {
@@ -76,8 +79,15 @@ header {
   color: var(--darkcontrast);
 }
 
-.addBtn {
-  position: sticky;
-  bottom: 0px;
-  right: 0px;
+.mdc-fab.addBtn {
+  background-color: var(--darkmain);
+  position: fixed;
+  bottom: 2vw;
+  right: 2vw;
+  padding: 20px;
+}
+
+.mdc-card.mdc-card-outlined.card {
+  justify-content: center;
+  margin: auto;
 }
