@@ -8,6 +8,7 @@
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 
 @media screen and (max-width: 719px) {
@@ -38,6 +39,7 @@ hr {
 }
 
 .mdc-top-app-bar--fixed.myNav {
+  width: 100%;
   background-color: var(--darkmain);
   margin-left: -0.5rem !important;
   margin-top: -0.5rem !important;
