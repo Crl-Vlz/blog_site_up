@@ -8,7 +8,6 @@
 html,
 body {
   height: 100%;
-  width: 100vw;
 }
 
 @media screen and (max-width: 719px) {
@@ -40,8 +39,8 @@ hr {
 
 .mdc-top-app-bar--fixed.myNav {
   background-color: var(--darkmain);
-  margin-left: -1.5rem;
-  margin-top: -1.5rem;
+  margin-left: -0.5rem !important;
+  margin-top: -0.5rem !important;
 }
 
 .my-card__media {
