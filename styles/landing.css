@@ -37,13 +37,10 @@ hr {
   margin: 0 0;
 }
 
-header {
-  margin-top: -0.5rem;
-  margin-left: -0.5rem;
-}
-
 .mdc-top-app-bar--fixed.myNav {
   background-color: var(--darkmain);
+  margin-left: -0.5rem;
+  margin-top: -0.5rem;
 }
 
 .my-card__media {
