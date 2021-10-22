@@ -51,7 +51,7 @@ hr {
 
 .my-card__media {
   background-image: url(http://getwallpapers.com/wallpaper/full/2/5/4/727006-best-windows-xp-desktop-backgrounds-3840x2160.jpg);
-  width: 75vw;
+  width: 90%;
 }
 
 .mdc-fab.edit {
@@ -65,14 +65,20 @@ hr {
   margin: auto;
 }
 
-.mainBody {
+.main-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 15rem;
-  padding-right: 15rem;
-  justify-self: center;
-  align-self: center;
+}
+
+.mdc-top-app-bar--fixed-adjust.mainBody {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.mainBody {
+  width: 90%;
   box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -93,4 +99,5 @@ hr {
 .mdc-card.mdc-card-outlined.card {
   justify-content: center;
   margin: auto;
+  width: 80%;
 }
