@@ -43,6 +43,7 @@ header {
 }
 
 .mdc-top-app-bar--fixed.myNav {
+  position: relative;
   background-color: var(--darkmain);
 }
 
@@ -60,17 +61,22 @@ header {
 
 .myCard {
   margin: auto;
+  position: relative;
 }
 
 .mainBody {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 15rem;
-  padding-right: 15rem;
   justify-self: center;
   align-self: center;
   box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mdc-top-app-bar--fixed-adjust.mainBody {
+  height: 100%;
+  margin: 0;
 }
 
 .cardText {
