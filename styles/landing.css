@@ -8,6 +8,13 @@
 html,
 body {
   height: 100%;
+  width: 100%;
+}
+
+nav {
+  width: 100% !important;
+  margin-left: -0.5rem !important;
+  margin-top: -0.5rem !important;
 }
 
 @media screen and (max-width: 719px) {
@@ -23,6 +30,7 @@ body {
     --create-btn-spacing-v: 20vh;
   }
 }
+
 /* Maybe change the variables if the height changes as well (smaller screen the edit btn id mid way
   maybe it will change when the content is added? ) */
 
@@ -37,11 +45,6 @@ hr {
   margin: 0 0;
 }
 
-header {
-  margin-top: -0.5rem;
-  margin-left: -0.5rem;
-}
-
 .mdc-top-app-bar--fixed.myNav {
   position: relative;
   background-color: var(--darkmain);
@@ -49,13 +52,13 @@ header {
 
 .my-card__media {
   background-image: url(http://getwallpapers.com/wallpaper/full/2/5/4/727006-best-windows-xp-desktop-backgrounds-3840x2160.jpg);
-  width: 75vw;
+  width: 90%;
 }
 
 .mdc-fab.edit {
   background-color: var(--lightcontrast);
   position: relative;
-  bottom: 2vw;
+  bottom: 2vh;
   left: 2vw;
 }
 
@@ -96,4 +99,14 @@ header {
 .mdc-card.mdc-card-outlined.card {
   justify-content: center;
   margin: auto;
+  width: 80%;
+}
+
+@media screen and (max-width: 600px) {
+  /* Target only devices below 600px */
+  .mdc-top-app-bar--fixed.myNav {
+    position: fixed;
+    z-index: 999; /* So that it is not under the other elements */
+    top: 1px;
+  }
 }
