@@ -70,22 +70,41 @@
     <main class="mdc-top-app-bar--fixed-adjust mainBody">
       <div class="mainBody">
         <!--CARD-->
-        <div class="mdc-card mdc-card-outlined card">
+        <div class="mdc-card mdc-card-outlined card mainBody">
+          <div class="post-title"><h1>Post Title</h1></div>
           <div
             class="my-card__media mdc-card__media mdc-card__media--16-9 myCard"
-          >
-            <!--Edit Button-->
-            <!--Change fab button-->
-            <!--SHould only appear once-->
-            <!--Try bottom drawer or something-->
-            <button aria-label="Create Post" class="mdc-fab edit">
-              <div class="mdc-fab__ripple"></div>
-              <span class="mdc-fab__icon material-icons"> edit </span>
+          ></div>
+          <!--Edit Button-->
+          <div class="cardText">Sample Text YEEEEE</div>
+          <div class="bottom-drawer">
+            <button
+              aria-label="View Post"
+              class="mdc-button mdc-button--icon__leading post-btn"
+            >
+              <span class="mdc-button__ripple"></span>
+              <i class="material-icons mdc-button__icon" aria-hidden="true"
+                >visibility</i
+              >
+              <span class="mdc-button__label">View Post</span>
+            </button>
+            <button
+              aria-label="View Post"
+              class="mdc-button mdc-button--icon__leading post-btn"
+            >
+              <span class="mdc-button__ripple"></span>
+              <i class="material-icons mdc-button__icon" aria-hidden="true"
+                >edit</i
+              >
+              <span class="mdc-button__label">Edit Post</span>
             </button>
           </div>
-          <div class="cardText">Sample Text YEEEEE</div>
         </div>
-        <button aria-label="Create Post" class="mdc-fab add addBtn">
+        <button
+          aria-label="Create Post"
+          class="mdc-fab add addBtn"
+          id="btn-add"
+        >
           <div class="mdc-fab__ripple"></div>
           <span class="mdc-fab__icon material-icons"> add </span>
         </button>

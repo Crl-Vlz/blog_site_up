@@ -71,9 +71,16 @@ hr {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center; /*Delete this if you want the cards to start at top not middle*/
   justify-self: center;
   align-self: center;
+}
+
+div.mainBody {
+  width: 60%;
+  box-shadow: none;
+}
+
+.card.mainBody {
   box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -102,10 +109,12 @@ hr {
 
 .mdc-fab.addBtn {
   background-color: var(--darkmain);
+}
+
+#btn-add {
   position: fixed;
-  bottom: 2vw;
+  bottom: 2vh;
   right: 2vw;
-  padding: 20px;
 }
 
 .mdc-button__label.Ok {
@@ -134,11 +143,39 @@ hr {
   width: 80%;
 }
 
+.bottom-drawer {
+  display: flex;
+}
+
+.mdc-button.post-btn {
+  width: fit-content;
+  margin: auto;
+  color: var(--lightcontrast) !important;
+}
+
+.post-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.post-title h1 {
+  margin: auto;
+}
+
 @media screen and (max-width: 600px) {
   /* Target only devices below 600px */
   .mdc-top-app-bar--fixed.myNav {
     position: fixed;
     z-index: 999; /* So that it is not under the other elements */
     top: 1px;
+  }
+  #btn-add {
+    bottom: 5vh;
+    right: 5vw;
+  }
+  div.mainBody {
+    width: 80%;
   }
 }
