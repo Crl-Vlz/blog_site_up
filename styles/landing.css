@@ -98,6 +98,9 @@ div.mainBody {
 
 .mdc-fab.addBtn {
   background-color: var(--darkmain);
+}
+
+#btn-add {
   position: fixed;
   bottom: 2vw;
   right: 2vw;
