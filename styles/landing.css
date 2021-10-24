@@ -101,7 +101,7 @@ div.mainBody {
 }
 
 #btn-add {
-  position: fixed;
+  position: fixed !important;
   bottom: 5vw;
   right: 5vw;
   padding: 20px;
@@ -111,6 +111,16 @@ div.mainBody {
   justify-content: center;
   margin: auto;
   width: 80%;
+}
+
+.bottom-drawer {
+  display: flex;
+}
+
+.mdc-button.post-btn {
+  width: fit-content;
+  margin: auto;
+  color: var(--lightcontrast) !important;
 }
 
 @media screen and (max-width: 600px) {
