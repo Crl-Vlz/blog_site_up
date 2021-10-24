@@ -1,7 +1,7 @@
 :root {
   --lightmain: #a8e0c8;
   --darkmain: #60947d;
-  --lightcontrast: #e0b0a8;
+  --lightcontrast: #c59a92;
   --darkcontrast: #945b51;
 }
 
@@ -95,6 +95,18 @@ div.mainBody {
   color: var(--darkcontrast);
 }
 
+.mdc-dialog__content.myForm {
+  position: relative;
+  padding: auto;
+  margin: auto;
+}
+
+.mdc-text-field-mdc-text-field--textarea.myTA {
+  position: relative;
+  padding: auto;
+  margin: auto;
+}
+
 .mdc-fab.addBtn {
   background-color: var(--darkmain);
 }
@@ -103,6 +115,26 @@ div.mainBody {
   position: fixed;
   bottom: 2vh;
   right: 2vw;
+}
+
+.mdc-button__label.Ok {
+  color: var(--lightcontrast);
+}
+
+.mdc-dialog__header.Head {
+  display: flex;
+}
+
+.mdc-dialog__title.T {
+  margin: auto;
+  padding: auto;
+  flex: auto;
+}
+
+.mdc-icon-button.material-icons.mdc-dialog__close.C {
+  margin: auto;
+  flex: 1;
+  color: var(--darkcontrast);
 }
 
 .mdc-card.mdc-card-outlined.card {
