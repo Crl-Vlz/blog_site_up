@@ -74,6 +74,14 @@ hr {
   justify-content: center; /*Delete this if you want the cards to start at top not middle*/
   justify-self: center;
   align-self: center;
+}
+
+div.mainBody {
+  width: 80%;
+  box-shadow: none;
+}
+
+.card.mainBody {
   box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
