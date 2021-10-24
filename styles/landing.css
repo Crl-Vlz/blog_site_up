@@ -71,13 +71,12 @@ hr {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center; /*Delete this if you want the cards to start at top not middle*/
   justify-self: center;
   align-self: center;
 }
 
 div.mainBody {
-  width: 80%;
+  width: 60%;
   box-shadow: none;
 }
 
@@ -143,5 +142,8 @@ div.mainBody {
   #btn-add {
     bottom: 5vh;
     right: 5vw;
+  }
+  div.mainBody {
+    width: 80%;
   }
 }
