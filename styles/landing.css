@@ -101,10 +101,9 @@ div.mainBody {
 }
 
 #btn-add {
-  position: fixed !important;
-  bottom: 5vw;
-  right: 5vw;
-  padding: 20px;
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
 }
 
 .mdc-card.mdc-card-outlined.card {
@@ -123,11 +122,26 @@ div.mainBody {
   color: var(--lightcontrast) !important;
 }
 
+.post-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.post-title h1 {
+  margin: auto;
+}
+
 @media screen and (max-width: 600px) {
   /* Target only devices below 600px */
   .mdc-top-app-bar--fixed.myNav {
     position: fixed;
     z-index: 999; /* So that it is not under the other elements */
     top: 1px;
+  }
+  #btn-add {
+    bottom: 5vh;
+    right: 5vw;
   }
 }
