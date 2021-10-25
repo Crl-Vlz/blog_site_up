@@ -28,16 +28,18 @@
         <section
           class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
         >
-          <button
-            aria-label="Return to main"
-            class="
-              material-icons
-              mdc-top-app-bar__navigation-icon
-              mdc-icon-button
-            "
-          >
-            home
-          </button>
+          <a href="login.html">
+            <button
+              aria-label="Return to main"
+              class="
+                material-icons
+                mdc-top-app-bar__navigation-icon
+                mdc-icon-button
+              "
+            >
+              home
+            </button>
+          </a>
           <button
             aria-label="See my posts"
             class="
@@ -113,17 +115,21 @@
       <!--PopUp-->
       <div class="mdc-dialog mdc-dialog--open myPopUp">
         <div class="mdc-dialog__container">
-          <div class="mdc-dialog__surface"
+          <div
+            class="mdc-dialog__surface"
             role="dialog"
             aria-modal="true"
             aria-labelledby="my-dialog-title"
-            aria-describedby="my-dialog-content">
+            aria-describedby="my-dialog-content"
+          >
             <div class="mdc-dialog__header Head">
               <h2 class="mdc-dialog__title T" id="my-dialog-title">
                 Share something
               </h2>
-              <button class="mdc-icon-button material-icons mdc-dialog__close C"
-                      data-mdc-dialog-action="close">
+              <button
+                class="mdc-icon-button material-icons mdc-dialog__close C"
+                data-mdc-dialog-action="close"
+              >
                 close
               </button>
             </div>
@@ -135,16 +141,27 @@
                   <span class="mdc-notched-outline__trailing"></span>
                 </span>
                 <span class="mdc-text-field__resizer">
-                  <textarea class="mdc-text-field__input" aria-labelledby="my-label-id" rows="8"
-                    cols="40" maxlength="140"></textarea>
+                  <textarea
+                    class="mdc-text-field__input"
+                    aria-labelledby="my-label-id"
+                    rows="8"
+                    cols="40"
+                    maxlength="140"
+                  ></textarea>
                 </span>
               </label>
-              <br>
-              <br>
+              <br />
+              <br />
               <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label" id="my-label-id">Image URL</span>
-                <input class="mdc-text-field__input txtInput" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-floating-label" id="my-label-id"
+                  >Image URL</span
+                >
+                <input
+                  class="mdc-text-field__input txtInput"
+                  type="text"
+                  aria-labelledby="my-label-id"
+                />
                 <span class="mdc-line-ripple"></span>
               </label>
               <div class="mdc-text-field-helper-line">
@@ -152,8 +169,11 @@
               </div>
             </div>
             <div class="mdc-dialog__actions">
-              <button type="button" class="mdc-button mdc-dialog__button"
-                      data-mdc-dialog-action="ok">
+              <button
+                type="button"
+                class="mdc-button mdc-dialog__button"
+                data-mdc-dialog-action="ok"
+              >
                 <div class="mdc-button__ripple"></div>
                 <span class="mdc-button__label Ok">OK</span>
               </button>
