@@ -5,6 +5,10 @@
   --darkcontrast: #945b51;
 }
 
+* {
+  font-family: "Ubuntu", serif;
+}
+
 .loginBody {
   display: flex;
   width: 100%;

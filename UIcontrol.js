@@ -2,6 +2,10 @@ $("#btn-add").click(function(){
     $("#popup").addClass("mdc-dialog--open");
 });
 
+$("#editPost").click(function(){
+    $("#popup").addClass("mdc-dialog--open");
+});
+
 $("#postOK").click(function(){
     $("#popup").removeClass("mdc-dialog--open");
 });
