@@ -1,7 +1,7 @@
 :root {
   --lightmain: #a8e0c8;
   --darkmain: #60947d;
-  --lightcontrast: #e0b0a8;
+  --lightcontrast: #c59a92;
   --darkcontrast: #945b51;
 }
 
@@ -46,7 +46,7 @@ hr {
 }
 
 .mdc-top-app-bar--fixed.myNav {
-  width: 100%;
+  position: relative;
   background-color: var(--darkmain);
 }
 
@@ -64,23 +64,29 @@ hr {
 
 .myCard {
   margin: auto;
+  position: relative;
 }
 
-.main-body {
+.mainBody {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-
-.mdc-top-app-bar--fixed-adjust.mainBody {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  justify-self: center;
+  align-self: center;
 }
 
 div.mainBody {
-  width: 90%;
+  width: 60%;
+  box-shadow: none;
+}
+
+.card.mainBody {
   box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mdc-top-app-bar--fixed-adjust.mainBody {
+  height: 100%;
+  margin: 0;
 }
 
 .cardText {
@@ -89,12 +95,46 @@ div.mainBody {
   color: var(--darkcontrast);
 }
 
+.mdc-dialog__content.myForm {
+  position: relative;
+  padding: auto;
+  margin: auto;
+}
+
+.mdc-text-field-mdc-text-field--textarea.myTA {
+  position: relative;
+  padding: auto;
+  margin: auto;
+}
+
 .mdc-fab.addBtn {
   background-color: var(--darkmain);
+}
+
+#btn-add {
   position: fixed;
-  bottom: 2vw;
+  bottom: 2vh;
   right: 2vw;
-  padding: 20px;
+}
+
+.mdc-button__label.Ok {
+  color: var(--lightcontrast);
+}
+
+.mdc-dialog__header.Head {
+  display: flex;
+}
+
+.mdc-dialog__title.T {
+  margin: auto;
+  padding: auto;
+  flex: auto;
+}
+
+.mdc-icon-button.material-icons.mdc-dialog__close.C {
+  margin: auto;
+  flex: 1;
+  color: var(--darkcontrast);
 }
 
 .mdc-card.mdc-card-outlined.card {
@@ -103,11 +143,39 @@ div.mainBody {
   width: 80%;
 }
 
+.bottom-drawer {
+  display: flex;
+}
+
+.mdc-button.post-btn {
+  width: fit-content;
+  margin: auto;
+  color: var(--lightcontrast) !important;
+}
+
+.post-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.post-title h1 {
+  margin: auto;
+}
+
 @media screen and (max-width: 600px) {
   /* Target only devices below 600px */
   .mdc-top-app-bar--fixed.myNav {
     position: fixed;
     z-index: 999; /* So that it is not under the other elements */
     top: 1px;
+  }
+  #btn-add {
+    bottom: 5vh;
+    right: 5vw;
+  }
+  div.mainBody {
+    width: 80%;
   }
 }

@@ -71,25 +71,96 @@
     <main class="mdc-top-app-bar--fixed-adjust mainBody">
       <div class="mainBody">
         <!--CARD-->
-        <div class="mdc-card mdc-card-outlined card">
+        <div class="mdc-card mdc-card-outlined card mainBody">
+          <div class="post-title"><h1>Post Title</h1></div>
           <div
             class="my-card__media mdc-card__media mdc-card__media--16-9 myCard"
-          >
-            <!--Edit Button-->
-            <!--Change fab button-->
-            <!--SHould only appear once-->
-            <!--Try bottom drawer or something-->
-            <button aria-label="Create Post" class="mdc-fab edit">
-              <div class="mdc-fab__ripple"></div>
-              <span class="mdc-fab__icon material-icons"> edit </span>
+          ></div>
+          <!--Edit Button-->
+          <div class="cardText">Sample Text YEEEEE</div>
+          <div class="bottom-drawer">
+            <button
+              aria-label="View Post"
+              class="mdc-button mdc-button--icon__leading post-btn"
+            >
+              <span class="mdc-button__ripple"></span>
+              <i class="material-icons mdc-button__icon" aria-hidden="true"
+                >visibility</i
+              >
+              <span class="mdc-button__label">View Post</span>
+            </button>
+            <button
+              aria-label="View Post"
+              class="mdc-button mdc-button--icon__leading post-btn"
+            >
+              <span class="mdc-button__ripple"></span>
+              <i class="material-icons mdc-button__icon" aria-hidden="true"
+                >edit</i
+              >
+              <span class="mdc-button__label">Edit Post</span>
             </button>
           </div>
-          <div class="cardText">Sample Text YEEEEE</div>
         </div>
-        <button aria-label="Create Post" class="mdc-fab add addBtn">
+        <button
+          aria-label="Create Post"
+          class="mdc-fab add addBtn"
+          id="btn-add"
+        >
           <div class="mdc-fab__ripple"></div>
           <span class="mdc-fab__icon material-icons"> add </span>
         </button>
+      </div>
+      <!--PopUp-->
+      <div class="mdc-dialog mdc-dialog--open myPopUp">
+        <div class="mdc-dialog__container">
+          <div class="mdc-dialog__surface"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="my-dialog-title"
+            aria-describedby="my-dialog-content">
+            <div class="mdc-dialog__header Head">
+              <h2 class="mdc-dialog__title T" id="my-dialog-title">
+                Share something
+              </h2>
+              <button class="mdc-icon-button material-icons mdc-dialog__close C"
+                      data-mdc-dialog-action="close">
+                close
+              </button>
+            </div>
+            <div class="mdc-dialog__content myForm" id="my-dialog-content">
+              <!--TEXTFIELD-->
+              <label class="mdc-text-field mdc-text-field--textarea myTA">
+                <span class="mdc-notched-outline myTA">
+                  <span class="mdc-notched-outline__leading"></span>
+                  <span class="mdc-notched-outline__trailing"></span>
+                </span>
+                <span class="mdc-text-field__resizer">
+                  <textarea class="mdc-text-field__input" aria-labelledby="my-label-id" rows="8"
+                    cols="40" maxlength="140"></textarea>
+                </span>
+              </label>
+              <br>
+              <br>
+              <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label" id="my-label-id">Image URL</span>
+                <input class="mdc-text-field__input txtInput" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+              </label>
+              <div class="mdc-text-field-helper-line">
+                <div class="mdc-text-field-character-counter">0 / 140</div>
+              </div>
+            </div>
+            <div class="mdc-dialog__actions">
+              <button type="button" class="mdc-button mdc-dialog__button"
+                      data-mdc-dialog-action="ok">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label Ok">OK</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
       </div>
     </main>
 

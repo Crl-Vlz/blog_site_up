@@ -18,7 +18,6 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
   </head>
   <!--BODY-->
   <body>
@@ -70,22 +69,56 @@
     </nav>
 
     <!--MAIN-->
-    <div class="content">
-      <main class="mdc-top-app-bar--fixed-adjust mainBody">
-        <h1 id="Title" class="title">Post Title</h1>
-        <hr />
-        <div class="post">
-          <template>
-            <!--Image: If available-->
-            <img src="" alt="" />
-          </template>
-          <p>Post Text</p>
-        </div>
-      </main>
-    </div>
+    <main class="loginBody">
+      <div class="image-wrapper">
+        <img src="" alt="" />
+      </div>
+      <form action="" class="loginForm">
+        <label class="mdc-text-field mdc-text-field--filled">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label" id="lbl-email">e-Mail</span>
+          <input
+            class="mdc-text-field__input"
+            type="email"
+            name="myEmail"
+            id="in-email"
+            aria-labelledby="lbl-email"
+          />
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <label class="mdc-text-field mdc-text-field--filled">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label" id="lbl-username">Username</span>
+          <input
+            class="mdc-text-field__input"
+            type="text"
+            name="myName"
+            id="in-name"
+            aria-labelledby="lbl-username"
+          />
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <label class="mdc-text-field mdc-text-field--filled">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label" id="lbl-password">Password</span>
+          <input
+            class="mdc-text-field__input"
+            type="text"
+            name="myPassword"
+            id="in-password"
+            aria-labelledby="lbl-password"
+          />
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <button class="mdc-button mdc-button--outlined btn-login">
+          <span class="mdc-button__ripple"></span>
+          <span class="mdc-button__label">Sign up</span>
+        </button>
+      </form>
+    </main>
     <!--Personal CSS-->
     <link rel="stylesheet" href="styles/landing.css" />
-    <link rel="stylesheet" href="styles/post.css" />
+    <link rel="stylesheet" href="styles/login.css" />
     <!--Material Design CSS and Script (Pre-Packaged)-->
     <link
       href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
