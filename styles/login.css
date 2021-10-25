@@ -43,3 +43,16 @@
   color: white !important;
   width: 50%;
 }
+
+@media screen and (max-width: 719px) {
+  .loginBody {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .image-wrapper {
+    align-self: center;
+  }
+  .loginForm {
+    align-self: center;
+  }
+}
