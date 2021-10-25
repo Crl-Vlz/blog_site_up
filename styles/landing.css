@@ -170,12 +170,14 @@ div.mainBody {
     position: fixed;
     z-index: 999; /* So that it is not under the other elements */
     top: 1px;
+    width: 100vw;
   }
   #btn-add {
-    bottom: 5vh;
-    right: 5vw;
+    position: fixed !important;
+    bottom: 5%;
+    right: 5%;
   }
   div.mainBody {
-    width: 80%;
+    width: 100vw;
   }
 }
