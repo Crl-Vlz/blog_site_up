@@ -9,11 +9,15 @@
   display: flex;
   width: 100%;
   align-items: center;
+  padding-top: 10%;
 }
 
 .image-wrapper {
   align-self: flex-start;
   width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .loginForm {
