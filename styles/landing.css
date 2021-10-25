@@ -118,11 +118,12 @@ div.mainBody {
 }
 
 .mdc-button__label.Ok {
-  color: var(--lightcontrast);
+  color: var(--darkcontrast);
 }
 
 .mdc-dialog__header.Head {
   display: flex;
+  background-color: var(--lightcontrast);
 }
 
 .mdc-dialog__title.T {
@@ -131,10 +132,16 @@ div.mainBody {
   flex: auto;
 }
 
+#my-dialog-title {
+  color: white;
+  background-color: var(--lightcontrast);
+}
+
 .mdc-icon-button.material-icons.mdc-dialog__close.C {
   margin: auto;
   flex: 1;
-  color: var(--darkcontrast);
+  color: white;
+  background-color: var(--lightcontrast);
 }
 
 .mdc-card.mdc-card-outlined.card {

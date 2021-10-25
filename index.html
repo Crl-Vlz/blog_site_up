@@ -116,7 +116,7 @@
       </div>
       <!--PopUp-->
       <!--When opened add class mdc-dialog--open from JS-->
-      <div class="mdc-dialog myPopUp">
+      <div class="mdc-dialog myPopUp mdc-dialog--open">
         <div class="mdc-dialog__container">
           <div
             class="mdc-dialog__surface"
@@ -127,17 +127,29 @@
           >
             <div class="mdc-dialog__header Head">
               <h2 class="mdc-dialog__title T" id="my-dialog-title">
-                Share something
+                My Post
               </h2>
               <button
                 class="mdc-icon-button material-icons mdc-dialog__close C"
                 data-mdc-dialog-action="close"
+                id="closePost"
               >
                 close
               </button>
             </div>
             <div class="mdc-dialog__content myForm" id="my-dialog-content">
               <!--TEXTFIELD-->
+              <br>
+              <div>
+                <label class="mdc-text-field mdc-text-field--outlined">
+                  <span class="mdc-notched-outline">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__trailing"></span>
+                  </span>
+                  <input type="text" class="mdc-text-field__input" value="Title">
+                </label>
+              </div>
+              <br>
               <label class="mdc-text-field mdc-text-field--textarea myTA">
                 <span class="mdc-notched-outline myTA">
                   <span class="mdc-notched-outline__leading"></span>
@@ -176,6 +188,7 @@
                 type="button"
                 class="mdc-button mdc-dialog__button"
                 data-mdc-dialog-action="ok"
+                id="postOK"
               >
                 <div class="mdc-button__ripple"></div>
                 <span class="mdc-button__label Ok">OK</span>
