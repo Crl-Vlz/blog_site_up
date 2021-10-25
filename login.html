@@ -75,14 +75,14 @@
       <div class="image-wrapper">
         <img src="images/UpBlog.svg" alt="Logo" />
       </div>
-      <form action="" class="loginForm">
+      <form action="/user" method="POST" class="loginForm">
         <label class="mdc-text-field mdc-text-field--filled">
           <span class="mdc-text-field__ripple"></span>
           <span class="mdc-floating-label" id="lbl-email">e-Mail</span>
           <input
             class="mdc-text-field__input"
             type="email"
-            name="myEmail"
+            name="email"
             id="in-email"
             aria-labelledby="lbl-email"
           />
@@ -94,7 +94,7 @@
           <input
             class="mdc-text-field__input"
             type="text"
-            name="myName"
+            name="user"
             id="in-name"
             aria-labelledby="lbl-username"
           />
@@ -106,7 +106,7 @@
           <input
             class="mdc-text-field__input"
             type="text"
-            name="myPassword"
+            name="pass"
             id="in-password"
             aria-labelledby="lbl-password"
           />
