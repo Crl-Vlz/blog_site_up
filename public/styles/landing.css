@@ -3,6 +3,7 @@
   --darkmain: #60947d;
   --lightcontrast: #c59a92;
   --darkcontrast: #945b51;
+  --mdc-theme-primary: #60947d !important;
 }
 
 html,
@@ -45,26 +46,15 @@ hr {
   margin: 0 0;
 }
 
-.mdc-top-app-bar--fixed.myNav {
-  position: relative;
-  background-color: var(--darkmain);
-}
-
 .my-card__media {
   background-image: url(http://getwallpapers.com/wallpaper/full/2/5/4/727006-best-windows-xp-desktop-backgrounds-3840x2160.jpg);
   width: 90%;
 }
 
-.mdc-fab.edit {
-  background-color: var(--lightcontrast);
-  position: relative;
-  bottom: 2vh;
-  left: 2vw;
-}
-
 .myCard {
   margin: auto;
   position: relative;
+  --mdc-theme-primary: #c59a92 !important;
 }
 
 .mainBody {
@@ -169,6 +159,10 @@ div.mainBody {
 
 .post-title h1 {
   margin: auto;
+}
+
+label.mdc-text-field--focused span.mdc-floating-label {
+  color: var(--darkmain) !important;
 }
 
 @media screen and (max-width: 600px) {

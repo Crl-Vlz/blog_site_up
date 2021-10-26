@@ -3,6 +3,7 @@
   --darkmain: #60947d;
   --lightcontrast: #e0b0a8;
   --darkcontrast: #945b51;
+  --mdc-theme-primary: #60947d !important;
 }
 
 * {
@@ -41,10 +42,16 @@
   width: 100%;
 }
 
+.loginForm label.mdc-text-field--focused span.mdc-floating-label {
+  color: var(--darkmain) !important;
+}
+
+.loginForm span.mdc-line-ripple {
+  background-color: var(--darkmain) !important;
+}
+
 .mdc-button.btn-login {
   margin-top: 2rem;
-  background-color: var(--darkmain) !important;
-  color: white !important;
   width: 50%;
 }
 
