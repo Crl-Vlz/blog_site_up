@@ -1,6 +1,17 @@
 const bodyParser = require("body-parser");
+const exp = require("constants");
 const express = require("express");
+const fs =  require("fs");
 //const bodyParser = require("body-parser");
+
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
+const html = new JSDOM(``, {
+    url: __dirname + "/public/index.html",
+    contentType: "text/html",
+  });
+global.document = new JSDOM(html).window.document;
 
 const app = express();
 //app.use(express.bodyParser()); //To show that you will be using BodyParser
@@ -28,6 +39,7 @@ Endpoints necesarios
 
 let users = [ {id: 1, user: "Eduardo", pass:"123"}, {id: 2, user: "Carlos", pass:"456"}];
 let generalPosts = [ {id: 1, userId: 1, title: "Titulo", description: "This is a description", imageUrl: ""}]; 
+let activeUser = {id: 0, user: ""};
 
 app.route('/user')
   .get((req, res) => {
@@ -48,7 +60,7 @@ app.route('/user')
     }else{
         let x = {id: newId, user: newUser, pass: newPass, email: newEmail}
         users.push(x);
-        res.send("User Added");
+        res.sendFile(__dirname + "/public/index.html");
     }
   })
 
@@ -111,15 +123,15 @@ app.route('/user')
       res.send(generalPosts);
   })
   .post( (req, res) => {
-    let userId = req.body.userId;   // true
+    let userId = activeUser.id;   // true
     let title = req.body.title;   // true
     let description = req.body.description;   // true
     let url = req.body.url;
     let newId = generalPosts[generalPosts.length-1].id + 1;
 
-    if(userId == undefined){
+  /*  if(userId == undefined){
         res.send("Invalid User ID");
-    }else if(title == undefined){
+    }else */if(title == undefined){
         res.send("Invalid Title");
     }else if(description == undefined){
         res.send("Invalid Description");
@@ -127,9 +139,13 @@ app.route('/user')
     else{
         let x = {id: newId, userId: userId, title: title, description: description, imageUrl: url}
         generalPosts.push(x);
-        res.send("Post Added");
+        document.addEventListener('DOMContentLoaded', () => {
+            $('<div class="mdc-card mdc-card-outlined card mainBody"> <div class="post-title"><h1 class="cardTitle">Post Title</h1></div> <div class="my-card__media mdc-card__media mdc-card__media--16-9 myCard" ></div> <!--Edit Button--> <div class="cardText">Sample Text YEEEEE</div><div class="bottom-drawer"><button action="/posts" method="delete" aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn" id="deletePost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">delete</i><span class="mdc-button__label">Delete Post</span></button><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn" id="editPost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">edit</i> <span class="mdc-button__label">Edit Post</span> </button> </div> </div>').appendTo(".card");
+            $(".cardTitle").text(title);
+        });
+        res.sendFile(__dirname + "/public/index.html");
     }
-  })
+})
   .put( (req, res) => {
     let id = req.body.id;
     let title = req.body.title;
@@ -180,10 +196,26 @@ app.route('/user')
     }
   });
 
-    
+  app.route('/activeUser')
+  .get((req, res) => {
+      res.send(activeUser);
+  })
+  .post( (req, res) => {
+    let newUser = req.body.user;   // true  
+    let newId;
+
+    for(let i = 0; i < users.length; i++){
+        if(users[i].user == newUser){
+            newId = i;
+        }
+    }
+
+    activeUser.id = newId;
+    activeUser.user = newUser;
+  })
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/public/index.html");
 });
 
 app.listen(3000, () => {

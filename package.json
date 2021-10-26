@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Crl-Vlz/blog_site_up#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jsdom": "^18.0.0"
   }
 }
