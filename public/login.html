@@ -76,7 +76,7 @@
         <img src="images/UpBlog.svg" alt="Logo" />
       </div>
       <form action="/user" method="POST" class="loginForm">
-        <label class="mdc-text-field mdc-text-field--filled">
+        <label class="mdc-text-field mdc-text-field--filled mail">
           <span class="mdc-text-field__ripple"></span>
           <span class="mdc-floating-label" id="lbl-email">e-Mail</span>
           <input
@@ -88,7 +88,7 @@
           />
           <span class="mdc-line-ripple"></span>
         </label>
-        <label class="mdc-text-field mdc-text-field--filled">
+        <label class="mdc-text-field mdc-text-field--filled username">
           <span class="mdc-text-field__ripple"></span>
           <span class="mdc-floating-label" id="lbl-username">Username</span>
           <input
@@ -100,7 +100,7 @@
           />
           <span class="mdc-line-ripple"></span>
         </label>
-        <label class="mdc-text-field mdc-text-field--filled">
+        <label class="mdc-text-field mdc-text-field--filled password">
           <span class="mdc-text-field__ripple"></span>
           <span class="mdc-floating-label" id="lbl-password">Password</span>
           <input
@@ -112,9 +112,11 @@
           />
           <span class="mdc-line-ripple"></span>
         </label>
-        <button class="mdc-button mdc-button--outlined btn-login"
-                type="submit"
-                name="submit">
+        <button
+          class="mdc-button mdc-button--outlined btn-login"
+          type="submit"
+          name="submit"
+        >
           <span class="mdc-button__ripple"></span>
           <span class="mdc-button__label">Sign up</span>
         </button>
@@ -129,5 +131,6 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="materialControlLogin.js"></script>
   </body>
 </html>
