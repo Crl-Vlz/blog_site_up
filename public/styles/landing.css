@@ -1,5 +1,5 @@
 :root {
-  --lightmain: #a8e0c8;
+  --lightmain: #f0fff8;
   --darkmain: #60947d;
   --lightcontrast: #c59a92;
   --darkcontrast: #945b51;
@@ -72,6 +72,7 @@ div.mainBody {
 
 .card.mainBody {
   box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: var(--lightmain);
 }
 
 .mdc-top-app-bar--fixed-adjust.mainBody {
@@ -105,6 +106,7 @@ div.mainBody {
   position: fixed;
   bottom: 2vh;
   right: 2vw;
+  z-index: 99 !important;
 }
 
 .mdc-button__label.Ok {

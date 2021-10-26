@@ -73,7 +73,7 @@
 
     <!--MAIN-->
     <main class="mdc-top-app-bar--fixed-adjust mainBody">
-      <div class="mainBody">
+      <div class="mainBody" id="postingArea">
         <!--CARD-->
         <div class="mdc-card mdc-card-outlined card mainBody">
           <div class="post-title"><h1>Post Title</h1></div>
@@ -81,33 +81,34 @@
             class="my-card__media mdc-card__media mdc-card__media--16-9 myCard"
           ></div>
           <!--Edit Button-->
-          <div class="cardText">Sample Text YEEEEE</div>
-          <div class="bottom-drawer">
-            <button
-              action="/posts" method="delete"
-              aria-label="View Post"
-              class="mdc-button mdc-button--icon__leading post-btn"
-              id="deletePost"
-            >
-              <span class="mdc-button__ripple"></span>
-              <i class="material-icons mdc-button__icon" aria-hidden="true"
-                >delete</i
+            <div class="cardText">Sample Text YEEEEE</div>
+            <div class="bottom-drawer">
+              <button
+                action="/posts" method="delete"
+                aria-label="View Post"
+                class="mdc-button mdc-button--icon__leading post-btn"
+                id="deletePost"
               >
-              <span class="mdc-button__label">Delete Post</span>
-            </button>
-            <button
-              aria-label="View Post"
-              class="mdc-button mdc-button--icon__leading post-btn"
-              id="editPost"
-            >
-              <span class="mdc-button__ripple"></span>
-              <i class="material-icons mdc-button__icon" aria-hidden="true"
-                >edit</i
+                <span class="mdc-button__ripple"></span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true"
+                  >delete</i
+                >
+                <span class="mdc-button__label">Delete Post</span>
+              </button>
+              <button
+                aria-label="View Post"
+                class="mdc-button mdc-button--icon__leading post-btn"
+                id="editPost"
               >
-              <span class="mdc-button__label">Edit Post</span>
-            </button>
+                <span class="mdc-button__ripple"></span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true"
+                  >edit</i
+                >
+                <span class="mdc-button__label">Edit Post</span>
+              </button>
+            </div>
           </div>
-        </div>
+        <br>
         <button
           aria-label="Create Post"
           class="mdc-fab add addBtn"
