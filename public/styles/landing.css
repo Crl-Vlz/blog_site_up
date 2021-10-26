@@ -3,6 +3,7 @@
   --darkmain: #60947d;
   --lightcontrast: #c59a92;
   --darkcontrast: #945b51;
+  --mdc-theme-primary: #60947d !important;
 }
 
 html,
@@ -169,6 +170,10 @@ div.mainBody {
 
 .post-title h1 {
   margin: auto;
+}
+
+label.mdc-text-field--focused span.mdc-floating-label {
+  color: var(--darkmain) !important;
 }
 
 @media screen and (max-width: 600px) {
