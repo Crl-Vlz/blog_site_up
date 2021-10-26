@@ -236,16 +236,6 @@ const $ = cheerio.load(`<!DOCTYPE html>
   </body>
 </html>`);
 
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-
-const html = new JSDOM(``, {
-  url: __dirname + "/public/index.html",
-  contentType: "text/html",
-});
-global.document = new JSDOM(html).window.document;
-console.log("DOC", document);
-
 const app = express();
 //app.use(express.bodyParser()); //To show that you will be using BodyParser
 
