@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign in</title>
+    <title>Sign Up</title>
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -76,6 +76,18 @@
         <img src="images/UpBlog.svg" alt="Logo" />
       </div>
       <form action="/user" method="POST" class="loginForm">
+        <label class="mdc-text-field mdc-text-field--filled mail">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label" id="lbl-email">e-Mail</span>
+          <input
+            class="mdc-text-field__input"
+            type="email"
+            name="email"
+            id="in-email"
+            aria-labelledby="lbl-email"
+          />
+          <span class="mdc-line-ripple"></span>
+        </label>
         <label class="mdc-text-field mdc-text-field--filled username">
           <span class="mdc-text-field__ripple"></span>
           <span class="mdc-floating-label" id="lbl-username">Username</span>
@@ -107,12 +119,12 @@
             name="submit"
           >
             <span class="mdc-button__ripple"></span>
-            <span class="mdc-button__label">Sign in</span>
+            <span class="mdc-button__label">Sign up</span>
           </button>
           <button class="mdc-button mdc-button--outlined btn-switch">
-            <a href="signup.html">
+            <a href="login.html">
               <span class="mdc-button__ripple"></span>
-              <span class="mdc-button__label">Sign up</span>
+              <span class="mdc-button__label">Login</span>
             </a>
           </button>
         </div>

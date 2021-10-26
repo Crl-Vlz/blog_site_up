@@ -10,6 +10,11 @@
   font-family: "Ubuntu", serif;
 }
 
+.mdc-button a {
+  text-decoration: none;
+  color: var(--darkmain);
+}
+
 .loginBody {
   display: flex;
   width: 100%;
@@ -50,9 +55,17 @@
   background-color: var(--darkmain) !important;
 }
 
-.mdc-button.btn-login {
+.btn-container {
   margin-top: 2rem;
-  width: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-container .mdc-button {
+  width: 40%;
+  margin: auto;
 }
 
 @media screen and (max-width: 719px) {

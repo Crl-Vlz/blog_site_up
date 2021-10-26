@@ -14,4 +14,9 @@ const MDCRipple = mdc.ripple.MDCRipple;
 
 const MDCRippleFoundation = mdc.ripple.MDCRippleFoundation;
 
-const buttonRipple = new MDCRipple(document.querySelector(".mdc-button"));
+const buttonRipple = [].map.call(
+  document.querySelectorAll(".mdc-button"),
+  function (el) {
+    return new MDCRipple(el);
+  }
+);
