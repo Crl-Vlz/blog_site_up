@@ -83,9 +83,10 @@ const $ = cheerio.load(`<!DOCTYPE html>
         <!--CARD-->
         <div class="mdc-card mdc-card-outlined card mainBody">
           <div class="post-title"><h1>Post Title</h1></div>
-          <div
-            class="my-card__media mdc-card__media mdc-card__media--16-9 myCard"
-          ></div>
+          <img
+          class="my-card__media mdc-card__media mdc-card__media--16-9 myCard"
+          src="https://cdn2.josefacchin.com/wp-content/uploads/2021/05/crear-un-blog-gratis.png"
+            >
           <!--Edit Button-->
           <div class="cardText">Sample Text YEEEEE</div>
           <div class="bottom-drawer">
@@ -188,7 +189,7 @@ const $ = cheerio.load(`<!DOCTYPE html>
                   <input
                   class="mdc-text-field__input txtInput"
                   type="text"
-                  name="imageUrl"
+                  name="url"
                   aria-labelledby="my-label-id"
                   />
                   <span class="mdc-line-ripple"></span>
@@ -371,10 +372,10 @@ app.route('/user')
     else{
         let x = {id: newId, userId: userId, title: title, description: description, imageUrl: url}
         generalPosts.push(x);
-        $('<div class="mdc-card mdc-card-outlined card mainBody" id="'+String(x.id)+'"> <div class="post-title"><h1 class="cardTitle" id="'+String(x.id)+'">Post Title</h1></div> <div class="my-card__media mdc-card__media mdc-card__media--16-9 myCard" ></div> <!--Edit Button--> <div class="cardText" id="'+String(x.id)+'">Sample Text YEEEEE</div><div class="bottom-drawer"><button action="/posts" method="delete" aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn" id="deletePost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">delete</i><span class="mdc-button__label">Delete Post</span></button><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn" id="editPost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">edit</i> <span class="mdc-button__label">Edit Post</span> </button> </div> </div><br>').appendTo("#postingArea")
+        $('<div class="mdc-card mdc-card-outlined card mainBody" id="'+String(x.id)+'"> <div class="post-title"><h1 class="cardTitle" id="'+String(x.id)+'">Post Title</h1></div> <img id="'+String(x.id)+'" class="my-card__media mdc-card__media mdc-card__media--16-9 myCard" src=""> <div class="cardText" id="'+String(x.id)+'">Sample Text YEEEEE</div><div class="bottom-drawer"><button action="/posts" method="delete" aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn" id="deletePost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">delete</i><span class="mdc-button__label">Delete Post</span></button><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn" id="editPost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">edit</i> <span class="mdc-button__label">Edit Post</span> </button> </div> </div><br>').appendTo("#postingArea")
         $("#"+String(x.id)+".cardTitle").text(x.title);
         $("#"+String(x.id)+".cardText").text(x.description);
-        $("#"+String(x.id)+".cardTitle").text(x.title);
+        $("#"+String(x.id)+".myCard").attr("src", x.imageUrl);
         res.send($.html());
     }
 })
