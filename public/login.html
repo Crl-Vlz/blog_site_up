@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main Page</title>
+    <title>Sign in</title>
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -76,18 +76,6 @@
         <img src="images/UpBlog.svg" alt="Logo" />
       </div>
       <form action="/user" method="POST" class="loginForm">
-        <label class="mdc-text-field mdc-text-field--filled mail">
-          <span class="mdc-text-field__ripple"></span>
-          <span class="mdc-floating-label" id="lbl-email">e-Mail</span>
-          <input
-            class="mdc-text-field__input"
-            type="email"
-            name="email"
-            id="in-email"
-            aria-labelledby="lbl-email"
-          />
-          <span class="mdc-line-ripple"></span>
-        </label>
         <label class="mdc-text-field mdc-text-field--filled username">
           <span class="mdc-text-field__ripple"></span>
           <span class="mdc-floating-label" id="lbl-username">Username</span>
@@ -112,15 +100,23 @@
           />
           <span class="mdc-line-ripple"></span>
         </label>
-        <button
-          class="mdc-button mdc-button--raised btn-login"
-          type="submit"
-          name="submit"
-          id="signUp"
-        >
-          <span class="mdc-button__ripple"></span>
-          <span class="mdc-button__label">Sign up</span>
-        </button>
+        <div class="btn-container">
+          <button
+            class="mdc-button mdc-button--raised"
+            type="submit"
+            name="submit"
+            id="btn-login"
+          >
+            <span class="mdc-button__ripple"></span>
+            <span class="mdc-button__label">Sign in</span>
+          </button>
+          <button class="mdc-button mdc-button--outlined" id="btn-switch">
+            <a href="signup.html">
+              <span class="mdc-button__ripple"></span>
+              <span class="mdc-button__label">Sign up</span>
+            </a>
+          </button>
+        </div>
       </form>
     </main>
     <!--Personal CSS-->
@@ -135,6 +131,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="index.js"></script>
     <script src="materialControlLogin.js"></script>
+    <script src="rippleControl.js"></script>
     <script src="materialControlNav.js"></script>
   </body>
 </html>

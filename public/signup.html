@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Post</title>
+    <title>Sign Up</title>
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,7 +12,6 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap"
       rel="stylesheet"
     />
-
     <!--Google Material Icons-->
     <link
       rel="stylesheet"
@@ -72,28 +71,76 @@
     </nav>
 
     <!--MAIN-->
-    <div class="content">
-      <main class="mdc-top-app-bar--fixed-adjust mainBody">
-        <h1 id="Title" class="title">Post Title</h1>
-        <hr />
-        <div class="post">
-          <template>
-            <!--Image: If available-->
-            <img src="" alt="" />
-          </template>
-          <p>Post Text</p>
+    <main class="loginBody">
+      <div class="image-wrapper">
+        <img src="images/UpBlog.svg" alt="Logo" />
+      </div>
+      <form action="/user" method="POST" class="loginForm">
+        <label class="mdc-text-field mdc-text-field--filled mail">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label" id="lbl-email">e-Mail</span>
+          <input
+            class="mdc-text-field__input"
+            type="email"
+            name="email"
+            id="in-email"
+            aria-labelledby="lbl-email"
+          />
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <label class="mdc-text-field mdc-text-field--filled username">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label" id="lbl-username">Username</span>
+          <input
+            class="mdc-text-field__input"
+            type="text"
+            name="user"
+            id="in-name"
+            aria-labelledby="lbl-username"
+          />
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <label class="mdc-text-field mdc-text-field--filled password">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label" id="lbl-password">Password</span>
+          <input
+            class="mdc-text-field__input"
+            type="text"
+            name="pass"
+            id="in-password"
+            aria-labelledby="lbl-password"
+          />
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <div class="btn-container">
+          <button
+            class="mdc-button mdc-button--raised"
+            type="submit"
+            name="submit"
+            id="btn-login"
+          >
+            <span class="mdc-button__ripple"></span>
+            <span class="mdc-button__label">Sign up</span>
+          </button>
+          <button class="mdc-button mdc-button--outlined" id="btn-switch">
+            <a href="login.html">
+              <span class="mdc-button__ripple"></span>
+              <span class="mdc-button__label">Login</span>
+            </a>
+          </button>
         </div>
-      </main>
-    </div>
+      </form>
+    </main>
     <!--Personal CSS-->
     <link rel="stylesheet" href="styles/landing.css" />
-    <link rel="stylesheet" href="styles/post.css" />
+    <link rel="stylesheet" href="styles/login.css" />
     <!--Material Design CSS and Script (Pre-Packaged)-->
     <link
       href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
       rel="stylesheet"
     />
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="materialControlLogin.js"></script>
     <script src="rippleControl.js"></script>
     <script src="materialControlNav.js"></script>
   </body>
