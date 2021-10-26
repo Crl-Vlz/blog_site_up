@@ -52,8 +52,6 @@
 
 .mdc-button.btn-login {
   margin-top: 2rem;
-  background-color: var(--darkmain) !important;
-  color: white !important;
   width: 50%;
 }
 

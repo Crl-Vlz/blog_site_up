@@ -46,26 +46,15 @@ hr {
   margin: 0 0;
 }
 
-.mdc-top-app-bar--fixed.myNav {
-  position: relative;
-  background-color: var(--darkmain);
-}
-
 .my-card__media {
   background-image: url(http://getwallpapers.com/wallpaper/full/2/5/4/727006-best-windows-xp-desktop-backgrounds-3840x2160.jpg);
   width: 90%;
 }
 
-.mdc-fab.edit {
-  background-color: var(--lightcontrast);
-  position: relative;
-  bottom: 2vh;
-  left: 2vw;
-}
-
 .myCard {
   margin: auto;
   position: relative;
+  --mdc-theme-primary: #c59a92 !important;
 }
 
 .mainBody {
