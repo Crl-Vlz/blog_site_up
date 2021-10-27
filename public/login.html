@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <!--Google Material Icons-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  </head>
+  <!--BODY-->
+  <body>
+    <!--NAVBAR-->
+    <nav class="mdc-top-app-bar mdc-top-app-bar--fixed myNav">
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <a href="index.html">
+            <button
+              aria-label="Return to main"
+              class="
+                material-icons
+                mdc-top-app-bar__navigation-icon
+                mdc-icon-button
+              "
+            >
+              home
+            </button>
+          </a>
+          <button
+            aria-label="See my posts"
+            class="
+              material-icons
+              mdc-top-app-bar__navigation-icon
+              mdc-icon-button
+            "
+          >
+            space_dashboard
+          </button>
+        </section>
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+          role="toolbar"
+        >
+          <a href="login.html">
+            <button
+              aria-label="Profile"
+              class="
+                material-icons
+                mdc-top-app-bar__navigation-icon
+                mdc-icon-button
+              "
+            >
+              account_circle
+            </button>
+          </a>
+        </section>
+      </div>
+    </nav>
+
+    <!--MAIN-->
+    <main class="loginBody">
+      <div class="image-wrapper">
+        <img src="images/UpBlog.svg" alt="Logo" />
+      </div>
+      <form action="/user" method="POST" class="loginForm">
+        <label class="mdc-text-field mdc-text-field--filled username">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label" id="lbl-username">Username</span>
+          <input
+            class="mdc-text-field__input"
+            type="text"
+            name="user"
+            id="in-name"
+            aria-labelledby="lbl-username"
+          />
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <label class="mdc-text-field mdc-text-field--filled password">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label" id="lbl-password">Password</span>
+          <input
+            class="mdc-text-field__input"
+            type="text"
+            name="pass"
+            id="in-password"
+            aria-labelledby="lbl-password"
+          />
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <div class="btn-container">
+          <button
+            class="mdc-button mdc-button--raised"
+            type="submit"
+            name="submit"
+            id="btn-login"
+          >
+            <span class="mdc-button__ripple"></span>
+            <span class="mdc-button__label">Sign in</span>
+          </button>
+          <button class="mdc-button mdc-button--outlined" id="btn-switch">
+            <a href="signup.html">
+              <span class="mdc-button__ripple"></span>
+              <span class="mdc-button__label">Sign up</span>
+            </a>
+          </button>
+        </div>
+      </form>
+    </main>
+    <!--Personal CSS-->
+    <link rel="stylesheet" href="styles/landing.css" />
+    <link rel="stylesheet" href="styles/login.css" />
+    <!--Material Design CSS and Script (Pre-Packaged)-->
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script src="materialControlLogin.js"></script>
+    <script src="rippleControl.js"></script>
+    <script src="materialControlNav.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+:root {
+  --lightmain: #a8e0c8;
+  --darkmain: #60947d;
+  --lightcontrast: #e0b0a8;
+  --darkcontrast: #945b51;
+  --mdc-theme-primary: #60947d !important;
+}
+
+* {
+  font-family: "Ubuntu", serif;
+}
+
+.mdc-button a {
+  text-decoration: none;
+  color: var(--darkmain);
+}
+
+.loginBody {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-top: 10%;
+}
+
+.image-wrapper {
+  align-self: flex-start;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.loginForm label.mdc-text-field {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.loginForm label.mdc-text-field--focused span.mdc-floating-label {
+  color: var(--darkmain) !important;
+}
+
+.loginForm span.mdc-line-ripple {
+  background-color: var(--darkmain) !important;
+}
+
+.btn-container {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-container .mdc-button {
+  width: 40%;
+  margin: auto;
+}
+
+@media screen and (max-width: 719px) {
+  .loginBody {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .image-wrapper {
+    align-self: center;
+  }
+  .loginForm {
+    align-self: center;
+  }
+}

@@ -1,0 +1,190 @@
+:root {
+  --lightmain: #f0fff8;
+  --darkmain: #60947d;
+  --lightcontrast: #c59a92;
+  --darkcontrast: #945b51;
+  --mdc-theme-primary: #60947d !important;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+nav {
+  width: 100% !important;
+  margin-left: -0.5rem !important;
+  margin-top: -0.5rem !important;
+}
+
+@media screen and (max-width: 719px) {
+  :root {
+    --create-btn-spacing-h: 85vw;
+    --create-btn-spacing-v: 60vh;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  :root {
+    --create-btn-spacing-h: 93vw;
+    --create-btn-spacing-v: 20vh;
+  }
+}
+
+/* Maybe change the variables if the height changes as well (smaller screen the edit btn id mid way
+  maybe it will change when the content is added? ) */
+
+* {
+  font-family: "Ubuntu", serif;
+}
+
+hr {
+  color: gray;
+  border-style: inset;
+  border-width: 1px;
+  margin: 0 0;
+}
+
+.my-card__media {
+  background-image: url(http://getwallpapers.com/wallpaper/full/2/5/4/727006-best-windows-xp-desktop-backgrounds-3840x2160.jpg);
+  width: 90%;
+}
+
+.myCard {
+  margin: auto;
+  position: relative;
+  --mdc-theme-primary: #c59a92 !important;
+}
+
+.mainBody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+}
+
+div.mainBody {
+  width: 60%;
+  box-shadow: none;
+}
+
+.card.mainBody {
+  box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: var(--lightmain);
+}
+
+.mdc-top-app-bar--fixed-adjust.mainBody {
+  height: 100%;
+  margin: 0;
+}
+
+.cardText {
+  margin: auto;
+  padding: 2vw;
+  color: var(--darkcontrast);
+}
+
+.mdc-dialog__content.myForm {
+  position: relative;
+  padding: auto;
+  margin: auto;
+}
+
+.mdc-text-field-mdc-text-field--textarea.myTA {
+  position: relative;
+  padding: auto;
+  margin: auto;
+}
+
+.mdc-fab.addBtn {
+  background-color: var(--darkmain);
+}
+
+#btn-add {
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+  z-index: 1;
+}
+
+.mdc-button.mdc-button--icon__leading.post-btn.mdc-text-field__input.myPostID {
+  visibility: hidden;
+}
+
+.mdc-button__label.Ok {
+  color: var(--darkcontrast);
+}
+
+.mdc-dialog__header.Head {
+  display: flex;
+  background-color: var(--lightcontrast);
+}
+
+.mdc-dialog__title.T {
+  margin: auto;
+  padding: auto;
+  flex: auto;
+}
+
+#my-dialog-title {
+  color: white;
+  background-color: var(--lightcontrast);
+}
+
+.mdc-icon-button.material-icons.mdc-dialog__close.C {
+  margin: auto;
+  flex: 1;
+  color: white;
+  background-color: var(--lightcontrast);
+}
+
+.mdc-card.mdc-card-outlined.card {
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+}
+
+.bottom-drawer {
+  display: flex;
+}
+
+.mdc-button.post-btn {
+  width: fit-content;
+  margin: auto;
+  color: var(--lightcontrast) !important;
+}
+
+.post-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.post-title h1 {
+  margin: auto;
+}
+
+label.mdc-text-field--focused span.mdc-floating-label {
+  color: var(--darkmain) !important;
+}
+
+@media screen and (max-width: 600px) {
+  /* Target only devices below 600px */
+  .mdc-top-app-bar--fixed.myNav {
+    position: fixed;
+    z-index: 1; /* So that it is not under the other elements */
+    top: 1px;
+    width: 100vw;
+  }
+  #btn-add {
+    position: fixed !important;
+    bottom: 5%;
+    right: 5%;
+  }
+  div.mainBody {
+    width: 100vw;
+  }
+}
