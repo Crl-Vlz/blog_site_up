@@ -51,6 +51,9 @@
             space_dashboard
           </button>
         </section>
+        <section>
+          <h1>Posts</h1>
+        </section>
         <section
           class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
           role="toolbar"
@@ -74,14 +77,14 @@
     <!--MAIN-->
     <main class="mdc-top-app-bar--fixed-adjust mainBody">
       <div class="mainBody" id="postingArea">
-        <!--CARD-->
+        <!--CARD--
         <div class="mdc-card mdc-card-outlined card mainBody">
-          <div class="post-title"><h1>Post Title</h1></div>
+          <div class="post-title"><h1 class="cardTitle">Post Title</h1></div>
           <img
             class="my-card__media mdc-card__media mdc-card__media--16-9 myCard"
             src="https://cdn2.josefacchin.com/wp-content/uploads/2021/05/crear-un-blog-gratis.png"
           >
-          <!--Edit Button-->
+          --Delete Button--
             <div class="cardText">Sample Text:  Share your thoughts</div>
             <div class="bottom-drawer">
               <form class="mdc-button mdc-button--icon__leading post-btn" action="/deletePost" method="POST">
@@ -99,11 +102,13 @@
                   <span class="mdc-button__label">Delete Post</span>
                 </button>
               </form>
+            --Edit Button--
+            <form class="mdc-button mdc-button--icon__leading post-btn" action="/edit" method="POST">
               <button
-                action="/posts" method="edit"
                 aria-label="View Post"
                 class="mdc-button mdc-button--icon__leading post-btn editPopUp"
                 id="editPost"
+                type="submit"
               >
                 <span class="mdc-button__ripple"></span>
                 <i class="material-icons mdc-button__icon" aria-hidden="true"
@@ -111,8 +116,9 @@
                 >
                 <span class="mdc-button__label">Edit Post</span>
               </button>
+              </form>
             </div>
-          </div>
+          </div>-->
         <br>
         <button
           aria-label="Create Post"
@@ -248,7 +254,7 @@
                       <span class="mdc-notched-outline__leading"></span>
                       <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="text" class="mdc-text-field__input" name="title" value="Title">
+                    <input type="text" class="mdc-text-field__input" name="title" value="Title" id="TitleIn">
                   </label>
                 </div>
                 <br>
@@ -264,6 +270,7 @@
                     name="description"
                     rows="8"
                     cols="40"
+                    id="txtInp"
                     maxlength="140"
                     ></textarea>
                   </span>
@@ -280,6 +287,7 @@
                   type="text"
                   name="url"
                   aria-labelledby="my-label-id"
+                  id="urlImp"
                   />
                   <span class="mdc-line-ripple"></span>
                 </label>

@@ -2,6 +2,7 @@ const bodyParser = require("body-parser");
 const exp = require("constants");
 const express = require("express");
 const fs = require("fs");
+
 //const bodyParser = require("body-parser");
 const cheerio = require("cheerio");
 const $ = cheerio.load(`<!DOCTYPE html>
@@ -80,6 +81,7 @@ const $ = cheerio.load(`<!DOCTYPE html>
     <!--MAIN-->
     <main class="mdc-top-app-bar--fixed-adjust mainBody">
       <div class="mainBody" id="postingArea">
+        <!--CARD-->
         <br>
         <button
           aria-label="Create Post"
@@ -215,7 +217,7 @@ const $ = cheerio.load(`<!DOCTYPE html>
                       <span class="mdc-notched-outline__leading"></span>
                       <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="text" class="mdc-text-field__input" name="title" value="Title">
+                    <input type="text" class="mdc-text-field__input" name="title" value="Title" id="TitleIn">
                   </label>
                 </div>
                 <br>
@@ -231,6 +233,7 @@ const $ = cheerio.load(`<!DOCTYPE html>
                     name="description"
                     rows="8"
                     cols="40"
+                    id="txtInp"
                     maxlength="140"
                     ></textarea>
                   </span>
@@ -247,6 +250,7 @@ const $ = cheerio.load(`<!DOCTYPE html>
                   type="text"
                   name="url"
                   aria-labelledby="my-label-id"
+                  id="urlImp"
                   />
                   <span class="mdc-line-ripple"></span>
                 </label>
@@ -292,131 +296,84 @@ const $ = cheerio.load(`<!DOCTYPE html>
 </html>
 `);
 
+
 const app = express();
 //app.use(express.bodyParser()); //To show that you will be using BodyParser
 
 // configure the app to use bodyParser()
 app.use(
-  bodyParser.urlencoded({
+    bodyParser.urlencoded({
     extended: true,
   })
-);
-app.use(bodyParser.json());
-app.use(express.static("public"));
+  );
+  app.use(bodyParser.json());
+  app.use(express.static("public"));
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.engine("html", require("ejs").renderFile);
-app.set("view engine", "html");
-
-/*
-Endpoints necesarios
--Agregar usuarios
--Verificar si el usuario existe y su contraseña es correcta
--Agregar post
--Borrar post
--Obtener post
--Editar post
-*/
-
-let users = [
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.engine("html", require("ejs").renderFile);
+  app.set("view engine", "html");
+  
+  /*
+  Endpoints necesarios
+  -Agregar usuarios
+  -Verificar si el usuario existe y su contraseña es correcta
+  -Agregar post
+  -Borrar post
+  -Obtener post
+  -Editar post
+  */
+ 
+ let users = [
   { id: 1, user: "Eduardo", pass: "123" },
   { id: 2, user: "Carlos", pass: "456" },
 ];
 let generalPosts = [
-  {
+    {
     id: 1,
     userId: 1,
     title: "Titulo",
     description: "This is a description",
     imageUrl: "",
-  },
+},
 ];
 let activeUser = { id: 0, user: "" };
 
 app
-  .route("/user")
+.route("/user")
   .get((req, res) => {
-    res.send(users);
-  })
-  .post((req, res) => {
-    let newEmail = req.body.email;
+      res.send(users);
+    })
+    .post((req, res) => {
+        let newEmail = req.body.email;
     let newUser = req.body.user; // true
     let newPass = req.body.pass; // true
     let newId = users[users.length - 1].id + 1;
 
     if (newUser == undefined) {
-      res.send("Invalid User");
+        res.send("Invalid User");
     } else if (newPass == undefined) {
-      res.send("Invalid Password");
+        res.send("Invalid Password");
     } else if (newEmail == undefined) {
-      res.send("Invalid Email");
+        res.send("Invalid Email");
     } else {
-      let x = { id: newId, user: newUser, pass: newPass, email: newEmail };
-      users.push(x);
-      res.sendFile(__dirname + "/public/index.html");
+        let x = { id: newId, user: newUser, pass: newPass, email: newEmail };
+        users.push(x);
+        res.sendFile(__dirname + "/public/index.html");
     }
-  })
-
-  .put((req, res) => {
-    let id = req.body.id;
-    let user = req.body.user;
-    let pass = req.body.pass;
-    let email = req.body.email;
-    let index;
-
-    for (let i = 0; i < users.length; i++) {
-      if (users[i].id == id) {
-        index = i;
-      }
-    }
-
-    if (index == undefined) {
-      res.send("Error: invalid ID");
-    } else if (user == undefined) {
-      res.send("Error: invalid user");
-    } else if (email == undefined) {
-      res.send("Error: invalid email");
-    } else if (pass == undefined) {
-      res.send("Error: invalid password");
-    } else {
-      users[index].user = user;
-      users[index].pass = pass;
-      users[index].email = email;
-
-      res.send("user information updated");
-    }
-  })
-
-  .delete((req, res) => {
-    let id = req.body.id;
-    let index;
-
-    for (let i = 0; i < users.length; i++) {
-      if (users[i].id == id) {
-        index = i;
-      }
-    }
-
-    if (index == undefined) {
-      res.send("Invalid ID");
-    } else {
-      users.splice(index, 1);
-      res.send("user deleted");
-    }
-  });
+});
 
 app
-  .route("/posts")
-  .get((req, res) => {
+.route("/posts")
+.get((req, res) => {
     res.send(generalPosts);
-  })
-  .post((req, res) => {
+})
+.post((req, res) => {
     let userId = activeUser.id; // true
     let title = req.body.title; // true
     let description = req.body.description; // true
     let url = req.body.url;
     let newId = generalPosts[generalPosts.length - 1].id + 1;
-
+    
     /*  if(userId == undefined){
         res.send("Invalid User ID");
     }else */if(title == null){
@@ -431,74 +388,48 @@ app
         +String(x.id)+'"> <div class="post-title"><h1 class="cardTitle" id="'
         +String(x.id)+'">Post Title</h1></div> <img id="'
         +String(x.id)+'" class="my-card__media mdc-card__media mdc-card__media--16-9 myCard" src=""> <div class="cardText" id="'
-        +String(x.id)+'">Sample Text YEEEEE</div><div class="bottom-drawer"><form class="mdc-button mdc-button--icon__leading post-btn" action="/deletePost" method="POST"> <input type="text" id='+String(x.id)+' class="mdc-button mdc-button--icon__leading post-btn mdc-text-field__input myPostID" style="position: absolute;" name="postID" value=""><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn type="submit"><span class="mdc-button__ripple delPost"'+String(x.id)+'"></span><i class="material-icons mdc-button__icon" aria-hidden="true">delete</i><span class="mdc-button__label">Delete Post</span></button></form><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn editPopUp" id="editPost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">edit</i> <span class="mdc-button__label">Edit Post</span> </button> </div> </div><br>').appendTo("#postingArea")
+        +String(x.id)+'">Sample Text YEEEEE</div><div class="bottom-drawer">'
+        +'<form class="mdc-button mdc-button--icon__leading post-btn" action="/deletePost" method="POST">'
+        +'<input type="text" id='+String(x.id)+' class="mdc-button mdc-button--icon__leading post-btn mdc-text-field__input myPostID" style="position: absolute;" name="postID" value="">'
+        +'<button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn type="submit"><span class="mdc-button__ripple delPost" id='
+        +String(x.id)+'"></span><i class="material-icons mdc-button__icon" aria-hidden="true">delete</i><span class="mdc-button__label">Delete Post</span></button></form>'
+        +'<form class="mdc-button mdc-button--icon__leading post-btn" action="/edit" method="POST"><input type="text" class="mdc-button mdc-button--icon__leading post-btn mdc-text-field__input myPostEditID" style="position: absolute;" name="editID" value="">'
+        +'<button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn editPopUp" id='
+        +String(x.id)+' name="editID" value=""><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">edit</i> <span class="mdc-button__label">Edit Post</span> </button> </div> </div><br>').appendTo("#postingArea")
         
         $("#"+String(x.id)+".cardTitle").text(x.title);
         $("#"+String(x.id)+".cardText").text(x.description);
         $("#"+String(x.id)+".myCard").attr("src", x.imageUrl);
         $("#"+String(x.id)+".myPostID").attr("value", x.id);
-
+        $("#"+String(x.id)+".editPopUp").attr("value", x.id);
+        
         res.send($.html());
     }
-})
-  .put( (req, res) => {
-    let id = req.body.id;
-    let title = req.body.title;
-    let description = req.body.description;
-    let url = req.body.imageUrl;
-    let index;
-
-    for(let i = 0; i < generalPosts.length; i++){
-        if(generalPosts[i].id == id){
-            index = i;
-            break;
-        }
-    }
-
-    if(index == null){
-        res.send("Error: invalid ID");
-    }
-    else if(title == null){
-        res.send("Error: invalid title");
-    }
-    else if(description == null){
-        res.send("Error: invalid description");
-    }else{
-        generalPosts[index].title = title;
-        generalPosts[index].description = description;
-        generalPosts[index].imageUrl = url;
-        $("#"+String(generalPosts[index].id)+".cardTitle").text(generalPosts[index].title);
-        $("#"+String(generalPosts[index].id)+".cardText").text(generalPosts[index].description);
-        $("#"+String(generalPosts[index].id)+".myCard").attr("src", generalPosts[index].imageUrl);
-        $("#"+String(x.id)+".card.mainBody").add; 
-        res.send($.html());
-    }
-
-  });
+});
 
 app
-  .route("/activeUser")
-  .get((req, res) => {
+.route("/activeUser")
+.get((req, res) => {
     res.send(activeUser);
-  })
-  .post((req, res) => {
+})
+.post((req, res) => {
     let newUser = req.body.user; // true
     let newId;
-
+    
     for (let i = 0; i < users.length; i++) {
-      if (users[i].user == newUser) {
-        newId = i;
-      }
+        if (users[i].user == newUser) {
+            newId = i;
+        }
     }
-
+    
     activeUser.id = newId;
     activeUser.user = newUser;
-  });
+});
 
-  app.route("/deletePost")
-  .post((req, res) => {
+app.route("/deletePost")
+.post((req, res) => {
     let id = req.body.postID;
-
+    
     for(let i = 0; i < generalPosts.length; i++){
         if(generalPosts[i].id == id){
             $("#"+String(generalPosts[i].id)+".card.mainBody").remove();
@@ -506,25 +437,35 @@ app
         }
     }
     res.send($.html());
-  })
+});
 
-  app.route("/postToEdit")
-  .post((req,res) =>{
-    global.currentID = req.body.postID;
-  })
+app.route("/edit")
+.post((req, res) => {
+    let id = req.body.editID;
+    id = id[1];
+    for(let i = 0; i < generalPosts.length; i++){
+        if(generalPosts[i].id == id){
+            $("#TitleIn").attr("value",generalPosts[i].title);
+            $("#txtInp").text(generalPosts[i].description); 
+            $("#urlImp").text(generalPosts[i].url); 
+        }
+    }
+    $("#popup2").addClass("mdc-dialog--open");
+    $("#postEdited").attr("value", id);
+    res.send($.html());
+});
 
   app.route("/editPost")
-  .post((req, res) => {
-        let title = req.body.title; // true
-        let description = req.body.description; // true
-        let url = req.body.url;
-        let index = generalPosts
-        console.log(index)
-
-            /*  if(userId == undefined){
-        res.send("Invalid User ID");
-    }else */if(title == null){
-        res.send("Invalid Title");
+    .post((req, res) => {
+      let title = req.body.title; // true
+      let description = req.body.description; // true
+      let url = req.body.url;
+      index = req.body.submit;
+      index = index-1;
+        /*  if(userId == undefined){
+            res.send("Invalid User ID");
+        }else */if(title == null){
+            res.send("Invalid Title");
     }else if(description == null){
         res.send("Invalid Description");
     }
@@ -537,19 +478,20 @@ app
         $("#"+String(generalPosts[index].id)+".myCard").attr("src", generalPosts[index].imageUrl);
         $("#"+String(generalPosts[index].id)+".card.mainBody").add; 
     }
-        res.send($.html());
-
+    $("#popup2").removeClass("mdc-dialog--open");
+    res.send($.html());
+    
   })
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
+  
+  app.get("/", (req, res) => {
+      res.sendFile(__dirname + "/public/index.html");
 });
 
 var port = process.env.PORT;
 if (port == null || port == "") {
-  port = 3000;
+    port = 3000;
 }
 
 app.listen(port, () => {
-  console.log("Server running on 3000");
+    console.log("Server running on 3000");
 });

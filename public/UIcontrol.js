@@ -2,11 +2,6 @@ $("#btn-add").click(function(){
     $("#popup").addClass("mdc-dialog--open");
 });
 
-$(".editPopUp").click(function(){
-    $("#popup2").addClass("mdc-dialog--open");
-    
-});
-
 $("#postOK").click(function(){
     $("#popup").removeClass("mdc-dialog--open");
 });
