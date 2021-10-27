@@ -1,9 +1,9 @@
 const bodyParser = require("body-parser");
 const exp = require("constants");
 const express = require("express");
-const fs =  require("fs");
+const fs = require("fs");
 //const bodyParser = require("body-parser");
-const cheerio = require('cheerio');
+const cheerio = require("cheerio");
 const $ = cheerio.load(`<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -201,28 +201,20 @@ const $ = cheerio.load(`<!DOCTYPE html>
 </html>
 `);
 
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-
-const html = new JSDOM(``, {
-    url: __dirname + "/public/index.html",
-    contentType: "text/html",
-  });
-global.document = new JSDOM(html).window.document;
-console.log("DOC", document);
-
 const app = express();
 //app.use(express.bodyParser()); //To show that you will be using BodyParser
 
 // configure the app to use bodyParser()
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 app.use(bodyParser.json());
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.engine('html', require("ejs").renderFile);
+app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 
 /*
@@ -235,99 +227,106 @@ Endpoints necesarios
 -Editar post
 */
 
-let users = [ {id: 1, user: "Eduardo", pass:"123"}, {id: 2, user: "Carlos", pass:"456"}];
-let generalPosts = [ {id: 1, userId: 1, title: "Titulo", description: "This is a description", imageUrl: ""}]; 
-let activeUser = {id: 0, user: ""};
+let users = [
+  { id: 1, user: "Eduardo", pass: "123" },
+  { id: 2, user: "Carlos", pass: "456" },
+];
+let generalPosts = [
+  {
+    id: 1,
+    userId: 1,
+    title: "Titulo",
+    description: "This is a description",
+    imageUrl: "",
+  },
+];
+let activeUser = { id: 0, user: "" };
 
-app.route('/user')
+app
+  .route("/user")
   .get((req, res) => {
-      res.send(users);
+    res.send(users);
   })
-  .post( (req, res) => {
+  .post((req, res) => {
     let newEmail = req.body.email;
-    let newUser = req.body.user;   // true
-    let newPass = req.body.pass;   // true
-    let newId = users[users.length-1].id + 1;
+    let newUser = req.body.user; // true
+    let newPass = req.body.pass; // true
+    let newId = users[users.length - 1].id + 1;
 
-    if(newUser == undefined){
-        res.send("Invalid User");
-    }else if(newPass == undefined){
-        res.send("Invalid Password");
-    }else if(newEmail == undefined){
-        res.send("Invalid Email");
-    }else{
-        let x = {id: newId, user: newUser, pass: newPass, email: newEmail}
-        users.push(x);
-        res.sendFile(__dirname + "/public/index.html");
+    if (newUser == undefined) {
+      res.send("Invalid User");
+    } else if (newPass == undefined) {
+      res.send("Invalid Password");
+    } else if (newEmail == undefined) {
+      res.send("Invalid Email");
+    } else {
+      let x = { id: newId, user: newUser, pass: newPass, email: newEmail };
+      users.push(x);
+      res.sendFile(__dirname + "/public/index.html");
     }
   })
 
-  .put( (req, res) => {
+  .put((req, res) => {
     let id = req.body.id;
     let user = req.body.user;
     let pass = req.body.pass;
     let email = req.body.email;
     let index;
 
-    for(let i = 0; i < users.length; i++){
-        if(users[i].id == id){
-            index = i;
-        }
-
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].id == id) {
+        index = i;
+      }
     }
 
-    if(index == undefined){
-        res.send("Error: invalid ID");
-    }
-    else if(user == undefined){
-        res.send("Error: invalid user");
-    }
-    else if(email == undefined){
-        res.send("Error: invalid email");
-    }
-    else if(pass == undefined){
-        res.send("Error: invalid password");
-    }else{
-        users[index].user = user;
-        users[index].pass = pass;
-        users[index].email = email;
-        
-        res.send("user information updated");
-    }
+    if (index == undefined) {
+      res.send("Error: invalid ID");
+    } else if (user == undefined) {
+      res.send("Error: invalid user");
+    } else if (email == undefined) {
+      res.send("Error: invalid email");
+    } else if (pass == undefined) {
+      res.send("Error: invalid password");
+    } else {
+      users[index].user = user;
+      users[index].pass = pass;
+      users[index].email = email;
 
+      res.send("user information updated");
+    }
   })
 
   .delete((req, res) => {
     let id = req.body.id;
     let index;
 
-    for(let i = 0; i < users.length; i++){
-        if(users[i].id == id){
-            index = i;
-        }
-
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].id == id) {
+        index = i;
+      }
     }
 
-    if(index == undefined){
-        res.send("Invalid ID");
-    }else{
-        users.splice(index, 1);
-        res.send("user deleted");
+    if (index == undefined) {
+      res.send("Invalid ID");
+    } else {
+      users.splice(index, 1);
+      res.send("user deleted");
     }
   });
 
-  app.route('/posts')
+app
+  .route("/posts")
   .get((req, res) => {
-      res.send(generalPosts);
+    res.send(generalPosts);
   })
-  .post( (req, res) => {
-    let userId = activeUser.id;   // true
-    let title = req.body.title;   // true
-    let description = req.body.description;   // true
+  .post((req, res) => {
+    let userId = activeUser.id; // true
+    let title = req.body.title; // true
+    let description = req.body.description; // true
     let url = req.body.url;
-    let newId = generalPosts[generalPosts.length-1].id + 1;
+    let newId = generalPosts[generalPosts.length - 1].id + 1;
 
-  /*  if(userId == undefined){
+    /*  if(userId == undefined){
         res.send("Invalid User ID");
     }else */if(title == null){
         res.send("Invalid Title");
@@ -387,8 +386,6 @@ app.route('/user')
   })
   .delete((req, res) => {
     let id = req.body.$(".card.mainBody").id;
-    console.log("HBJHNKJ")
-    console.log("HI", id);
 
     for(let i = 0; i < generalPosts.length; i++){
         if(generalPosts[i].id == id){
@@ -402,18 +399,19 @@ app.route('/user')
     
   });
 
-  app.route('/activeUser')
+app
+  .route("/activeUser")
   .get((req, res) => {
-      res.send(activeUser);
+    res.send(activeUser);
   })
-  .post( (req, res) => {
-    let newUser = req.body.user;   // true  
+  .post((req, res) => {
+    let newUser = req.body.user; // true
     let newId;
 
-    for(let i = 0; i < users.length; i++){
-        if(users[i].user == newUser){
-            newId = i;
-        }
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].user == newUser) {
+        newId = i;
+      }
     }
 
     activeUser.id = newId;
@@ -450,9 +448,14 @@ app.route('/user')
   })
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/public/index.html");
 });
 
-app.listen(3000, () => {
-    console.log("Server running on 3000");
+var port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(port, () => {
+  console.log("Server running on 3000");
 });
