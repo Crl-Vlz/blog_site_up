@@ -106,7 +106,7 @@ div.mainBody {
   position: fixed;
   bottom: 2vh;
   right: 2vw;
-  z-index: 99 !important;
+  z-index: 1;
 }
 
 .mdc-button__label.Ok {
@@ -171,7 +171,7 @@ label.mdc-text-field--focused span.mdc-floating-label {
   /* Target only devices below 600px */
   .mdc-top-app-bar--fixed.myNav {
     position: fixed;
-    z-index: 999; /* So that it is not under the other elements */
+    z-index: 1; /* So that it is not under the other elements */
     top: 1px;
     width: 100vw;
   }
