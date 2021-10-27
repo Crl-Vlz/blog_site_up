@@ -84,19 +84,25 @@
           <!--Edit Button-->
             <div class="cardText">Sample Text:  Share your thoughts</div>
             <div class="bottom-drawer">
-              <button
-                action="/posts" method="delete"
+              <form class="mdc-button mdc-button--icon__leading post-btn" action="/deletePost" method="POST">
+                <input type="text" class="mdc-button mdc-button--icon__leading post-btn mdc-text-field__input myPostID" style="position: absolute;" name="postID" value="">
+                <button
                 aria-label="View Post"
                 class="mdc-button mdc-button--icon__leading post-btn"
                 id="deletePost"
-              >
-                <span class="mdc-button__ripple"></span>
-                <i class="material-icons mdc-button__icon" aria-hidden="true"
-                  >delete</i
+                type="submit"
                 >
-                <span class="mdc-button__label">Delete Post</span>
-              </button>
+                  <span class="mdc-button__ripple"></span>
+                  <i class="material-icons mdc-button__icon" aria-hidden="true"
+                    >delete</i
+                  >
+                  <span class="mdc-button__label">Delete Post</span>
+                </button>
+              </form>
+              <form class="mdc-button mdc-button--icon__leading post-btn" action="/editPost" method="POST">
+              <input type="text" class="mdc-button mdc-button--icon__leading post-btn mdc-text-field__input myPostID" style="position: absolute;" name="postID" value="">
               <button
+                action="/posts" method="edit"
                 aria-label="View Post"
                 class="mdc-button mdc-button--icon__leading post-btn"
                 id="editPost"
@@ -107,6 +113,7 @@
                 >
                 <span class="mdc-button__label">Edit Post</span>
               </button>
+            </form>
             </div>
           </div>
         <br>

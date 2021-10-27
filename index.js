@@ -5,6 +5,7 @@ const fs =  require("fs");
 //const bodyParser = require("body-parser");
 const cheerio = require('cheerio');
 const $ = cheerio.load(`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -80,41 +81,6 @@ const $ = cheerio.load(`<!DOCTYPE html>
     <!--MAIN-->
     <main class="mdc-top-app-bar--fixed-adjust mainBody">
       <div class="mainBody" id="postingArea">
-        <!--CARD-->
-        <div class="mdc-card mdc-card-outlined card mainBody">
-          <div class="post-title"><h1>Post Title</h1></div>
-          <img
-          class="my-card__media mdc-card__media mdc-card__media--16-9 myCard"
-          src="https://cdn2.josefacchin.com/wp-content/uploads/2021/05/crear-un-blog-gratis.png"
-            >
-          <!--Edit Button-->
-          <div class="cardText">Sample Text YEEEEE</div>
-          <div class="bottom-drawer">
-            <button
-              action="/posts" method="delete"
-              aria-label="View Post"
-              class="mdc-button mdc-button--icon__leading post-btn"
-              id="deletePost"
-            >
-              <span class="mdc-button__ripple"></span>
-              <i class="material-icons mdc-button__icon" aria-hidden="true"
-                >delete</i
-              >
-              <span class="mdc-button__label">Delete Post</span>
-            </button>
-            <button
-              aria-label="View Post"
-              class="mdc-button mdc-button--icon__leading post-btn"
-              id="editPost"
-            >
-              <span class="mdc-button__ripple"></span>
-              <i class="material-icons mdc-button__icon" aria-hidden="true"
-                >edit</i
-              >
-              <span class="mdc-button__label">Edit Post</span>
-            </button>
-          </div>
-        </div>
         <br>
         <button
           aria-label="Create Post"
@@ -230,11 +196,10 @@ const $ = cheerio.load(`<!DOCTYPE html>
     <script src="index.js"></script>
     <script src="materialControlNav.js"></script>
     <script src="materialControlLanding.js"></script>
-
-
-    <script src="materialControlFAB.js"></script>
+    <script src="rippleControl.js"></script>
   </body>
-</html>`);
+</html>
+`);
 
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
@@ -364,18 +329,25 @@ app.route('/user')
 
   /*  if(userId == undefined){
         res.send("Invalid User ID");
-    }else */if(title == undefined){
+    }else */if(title == null){
         res.send("Invalid Title");
-    }else if(description == undefined){
+    }else if(description == null){
         res.send("Invalid Description");
     }
     else{
         let x = {id: newId, userId: userId, title: title, description: description, imageUrl: url}
         generalPosts.push(x);
-        $('<div class="mdc-card mdc-card-outlined card mainBody" id="'+String(x.id)+'"> <div class="post-title"><h1 class="cardTitle" id="'+String(x.id)+'">Post Title</h1></div> <img id="'+String(x.id)+'" class="my-card__media mdc-card__media mdc-card__media--16-9 myCard" src=""> <div class="cardText" id="'+String(x.id)+'">Sample Text YEEEEE</div><div class="bottom-drawer"><button action="/posts" method="delete" aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn" id="deletePost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">delete</i><span class="mdc-button__label">Delete Post</span></button><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn" id="editPost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">edit</i> <span class="mdc-button__label">Edit Post</span> </button> </div> </div><br>').appendTo("#postingArea")
+        $('<div class="mdc-card mdc-card-outlined card mainBody" id="'
+        +String(x.id)+'"> <div class="post-title"><h1 class="cardTitle" id="'
+        +String(x.id)+'">Post Title</h1></div> <img id="'
+        +String(x.id)+'" class="my-card__media mdc-card__media mdc-card__media--16-9 myCard" src=""> <div class="cardText" id="'
+        +String(x.id)+'">Sample Text YEEEEE</div><div class="bottom-drawer"><form class="mdc-button mdc-button--icon__leading post-btn" action="/deletePost" method="POST"> <input type="text" id='+String(x.id)+' class="mdc-button mdc-button--icon__leading post-btn mdc-text-field__input myPostID" style="position: absolute;" name="postID" value=""><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn type="submit"><span class="mdc-button__ripple delPost"'+String(x.id)+'"></span><i class="material-icons mdc-button__icon" aria-hidden="true">delete</i><span class="mdc-button__label">Delete Post</span></button></form><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn" id="editPost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">edit</i> <span class="mdc-button__label">Edit Post</span> </button> </div> </div><br>').appendTo("#postingArea")
+        
         $("#"+String(x.id)+".cardTitle").text(x.title);
         $("#"+String(x.id)+".cardText").text(x.description);
         $("#"+String(x.id)+".myCard").attr("src", x.imageUrl);
+        $("#"+String(x.id)+".myPostID").attr("value", x.id);
+
         res.send($.html());
     }
 })
@@ -389,44 +361,45 @@ app.route('/user')
     for(let i = 0; i < generalPosts.length; i++){
         if(generalPosts[i].id == id){
             index = i;
+            break;
         }
-
     }
 
-    if(index == undefined){
+    if(index == null){
         res.send("Error: invalid ID");
     }
-    else if(title == undefined){
+    else if(title == null){
         res.send("Error: invalid title");
     }
-    else if(description == undefined){
+    else if(description == null){
         res.send("Error: invalid description");
     }else{
         generalPosts[index].title = title;
         generalPosts[index].description = description;
         generalPosts[index].imageUrl = url;
-        
-        res.send("Post updated");
+        $("#"+String(generalPosts[index].id)+".cardTitle").text(generalPosts[index].title);
+        $("#"+String(generalPosts[index].id)+".cardText").text(generalPosts[index].description);
+        $("#"+String(generalPosts[index].id)+".myCard").attr("src", generalPosts[index].imageUrl);
+        $("#"+String(x.id)+".card.mainBody").add; 
+        res.send($.html());
     }
 
   })
   .delete((req, res) => {
-    let id = req.body.id;
-    let index;
+    let id = req.body.$(".card.mainBody").id;
+    console.log("HBJHNKJ")
+    console.log("HI", id);
 
     for(let i = 0; i < generalPosts.length; i++){
         if(generalPosts[i].id == id){
-            index = i;
+            $("#"+String(x.id)+".card.mainBody").remove();
+            generalPosts.pop(generalPosts[i])
         }
 
     }
 
-    if(index == undefined){
-        res.send("Invalid ID");
-    }else{
-        generalPosts.splice(index, 1);
-        res.send("Post deleted");
-    }
+    res.send($.html());
+    
   });
 
   app.route('/activeUser')
@@ -445,6 +418,35 @@ app.route('/user')
 
     activeUser.id = newId;
     activeUser.user = newUser;
+  });
+
+  app.route("/deletePost")
+  .post((req, res) => {
+    let id = req.body.postID;
+
+    for(let i = 0; i < generalPosts.length; i++){
+        if(generalPosts[i].id == id){
+            $("#"+String(generalPosts[i].id)+".card.mainBody").remove();
+            generalPosts.pop(generalPosts[i]);
+        }
+    }
+    res.send($.html());
+  })
+
+  app.route("/editPost")
+  .post((req, res) => {
+    console.log("HBJHNKJ", req.body.postID)
+    let index = req.body.postID;
+
+    generalPosts[index].title = title;
+    generalPosts[index].description = description;
+    generalPosts[index].imageUrl = url;
+    $("#"+String(generalPosts[index].id)+".cardTitle").text(generalPosts[index].title);
+    $("#"+String(generalPosts[index].id)+".cardText").text(generalPosts[index].description);
+    $("#"+String(generalPosts[index].id)+".myCard").attr("src", generalPosts[index].imageUrl);
+    $("#"+String(x.id)+".card.mainBody").add; 
+
+    res.send($.html());
   })
 
 app.get("/", (req, res) => {

@@ -109,6 +109,10 @@ div.mainBody {
   z-index: 99 !important;
 }
 
+.mdc-button.mdc-button--icon__leading.post-btn.mdc-text-field__input.myPostID {
+  visibility: hidden;
+}
+
 .mdc-button__label.Ok {
   color: var(--darkcontrast);
 }
