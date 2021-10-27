@@ -5,7 +5,9 @@ const fs = require("fs");
 
 //const bodyParser = require("body-parser");
 const cheerio = require("cheerio");
+const { title } = require("process");
 const $ = cheerio.load(`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -363,11 +365,13 @@ app
 });
 
 app
-.route("/posts")
-.get((req, res) => {
-    res.send(generalPosts);
-})
-.post((req, res) => {
+  .route("/posts")
+  .get((req, res) => {
+    if (generalPosts.length - 1) {
+      res.send($.html());
+    }
+  })
+  .post((req, res) => {
     let userId = activeUser.id; // true
     let title = req.body.title; // true
     let description = req.body.description; // true
