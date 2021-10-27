@@ -5,7 +5,6 @@ const fs = require("fs");
 //const bodyParser = require("body-parser");
 const cheerio = require("cheerio");
 const $ = cheerio.load(`<!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -181,6 +180,98 @@ const $ = cheerio.load(`<!DOCTYPE html>
         </div>
         <div class="mdc-dialog__scrim"></div>
       </div>
+
+      <!--PopUp EDIT-->
+      <!--When opened add class mdc-dialog--open from JS-->
+      
+      <div class="mdc-dialog myPopUp" id="popup2">
+        <div class="mdc-dialog__container">
+          <div
+            class="mdc-dialog__surface"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="my-dialog-title"
+            aria-describedby="my-dialog-content"
+          >
+            <div class="mdc-dialog__header Head">
+              <h2 class="mdc-dialog__title T" id="my-dialog-title">
+                Edit my Post
+              </h2>
+              <button
+                class="mdc-icon-button material-icons mdc-dialog__close C"
+                data-mdc-dialog-action="close"
+                id="closeEdit"
+              >
+                close
+              </button>
+            </div>
+            <form action="/editPost" method="POST">
+              <div class="mdc-dialog__content myForm" id="my-dialog-content">
+                <!--FORMS-->
+                <br>
+                <div>
+                  <label class="mdc-text-field mdc-text-field--outlined myTitle">
+                    <span class="mdc-notched-outline">
+                      <span class="mdc-notched-outline__leading"></span>
+                      <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" class="mdc-text-field__input" name="title" value="Title">
+                  </label>
+                </div>
+                <br>
+                <label class="mdc-text-field mdc-text-field--textarea myTA">
+                  <span class="mdc-notched-outline myTA">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__trailing"></span>
+                  </span>
+                  <span class="mdc-text-field__resizer">
+                    <textarea
+                    class="mdc-text-field__input"
+                    aria-labelledby="my-label-id"
+                    name="description"
+                    rows="8"
+                    cols="40"
+                    maxlength="140"
+                    ></textarea>
+                  </span>
+                </label>
+                <br />
+                <br />
+                <label class="mdc-text-field mdc-text-field--filled imageURL">
+                  <span class="mdc-text-field__ripple"></span>
+                  <span class="mdc-floating-label" id="my-label-id"
+                  >Image URL</span
+                  >
+                  <input
+                  class="mdc-text-field__input txtInput"
+                  type="text"
+                  name="url"
+                  aria-labelledby="my-label-id"
+                  />
+                  <span class="mdc-line-ripple"></span>
+                </label>
+                <div class="mdc-text-field-helper-line">
+                  <div class="mdc-text-field-character-counter">0 / 140</div>
+                </div>
+              </div>
+              <div class="mdc-dialog__actions">
+                <button
+                type="submit"
+                name="submit"
+                class="mdc-button mdc-dialog__button"
+                data-mdc-dialog-action="ok"
+                id="postEdited"
+                >
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label Ok">Save Changes</span>
+              </button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+      </div>
+
     </main>
 
     <!--Personal CSS-->
@@ -340,7 +431,7 @@ app
         +String(x.id)+'"> <div class="post-title"><h1 class="cardTitle" id="'
         +String(x.id)+'">Post Title</h1></div> <img id="'
         +String(x.id)+'" class="my-card__media mdc-card__media mdc-card__media--16-9 myCard" src=""> <div class="cardText" id="'
-        +String(x.id)+'">Sample Text YEEEEE</div><div class="bottom-drawer"><form class="mdc-button mdc-button--icon__leading post-btn" action="/deletePost" method="POST"> <input type="text" id='+String(x.id)+' class="mdc-button mdc-button--icon__leading post-btn mdc-text-field__input myPostID" style="position: absolute;" name="postID" value=""><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn type="submit"><span class="mdc-button__ripple delPost"'+String(x.id)+'"></span><i class="material-icons mdc-button__icon" aria-hidden="true">delete</i><span class="mdc-button__label">Delete Post</span></button></form><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn" id="editPost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">edit</i> <span class="mdc-button__label">Edit Post</span> </button> </div> </div><br>').appendTo("#postingArea")
+        +String(x.id)+'">Sample Text YEEEEE</div><div class="bottom-drawer"><form class="mdc-button mdc-button--icon__leading post-btn" action="/deletePost" method="POST"> <input type="text" id='+String(x.id)+' class="mdc-button mdc-button--icon__leading post-btn mdc-text-field__input myPostID" style="position: absolute;" name="postID" value=""><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn type="submit"><span class="mdc-button__ripple delPost"'+String(x.id)+'"></span><i class="material-icons mdc-button__icon" aria-hidden="true">delete</i><span class="mdc-button__label">Delete Post</span></button></form><button aria-label="View Post" class="mdc-button mdc-button--icon__leading post-btn editPopUp" id="editPost"><span class="mdc-button__ripple"></span><i class="material-icons mdc-button__icon" aria-hidden="true">edit</i> <span class="mdc-button__label">Edit Post</span> </button> </div> </div><br>').appendTo("#postingArea")
         
         $("#"+String(x.id)+".cardTitle").text(x.title);
         $("#"+String(x.id)+".cardText").text(x.description);
@@ -383,20 +474,6 @@ app
         res.send($.html());
     }
 
-  })
-  .delete((req, res) => {
-    let id = req.body.$(".card.mainBody").id;
-
-    for(let i = 0; i < generalPosts.length; i++){
-        if(generalPosts[i].id == id){
-            $("#"+String(x.id)+".card.mainBody").remove();
-            generalPosts.pop(generalPosts[i])
-        }
-
-    }
-
-    res.send($.html());
-    
   });
 
 app
@@ -431,20 +508,37 @@ app
     res.send($.html());
   })
 
+  app.route("/postToEdit")
+  .post((req,res) =>{
+    global.currentID = req.body.postID;
+  })
+
   app.route("/editPost")
   .post((req, res) => {
-    console.log("HBJHNKJ", req.body.postID)
-    let index = req.body.postID;
+        let title = req.body.title; // true
+        let description = req.body.description; // true
+        let url = req.body.url;
+        let index = generalPosts
+        console.log(index)
 
-    generalPosts[index].title = title;
-    generalPosts[index].description = description;
-    generalPosts[index].imageUrl = url;
-    $("#"+String(generalPosts[index].id)+".cardTitle").text(generalPosts[index].title);
-    $("#"+String(generalPosts[index].id)+".cardText").text(generalPosts[index].description);
-    $("#"+String(generalPosts[index].id)+".myCard").attr("src", generalPosts[index].imageUrl);
-    $("#"+String(x.id)+".card.mainBody").add; 
+            /*  if(userId == undefined){
+        res.send("Invalid User ID");
+    }else */if(title == null){
+        res.send("Invalid Title");
+    }else if(description == null){
+        res.send("Invalid Description");
+    }
+    else{
+        generalPosts[index].title = title;
+        generalPosts[index].description = description;
+        generalPosts[index].imageUrl = url;
+        $("#"+String(generalPosts[index].id)+".cardTitle").text(generalPosts[index].title);
+        $("#"+String(generalPosts[index].id)+".cardText").text(generalPosts[index].description);
+        $("#"+String(generalPosts[index].id)+".myCard").attr("src", generalPosts[index].imageUrl);
+        $("#"+String(generalPosts[index].id)+".card.mainBody").add; 
+    }
+        res.send($.html());
 
-    res.send($.html());
   })
 
 app.get("/", (req, res) => {
